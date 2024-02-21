@@ -8,7 +8,8 @@ Here's a breakdown of the steps  to set the server:
    - Install virtualenv if not already installed: `$ pip install virtualenv`
    - Create a virtual environment  ` virtualenv venv`
    - Activate the virtual environment: ` source venv/Scripts/activate`
-   - From now on any modification on the server should be done after activating the venv 
+   - Installing requirements.txt : `pip install -r requirements.txt`
+   - From now on any modification on the server should be done after activating the venv
 
 2. **Setting up the MySQL Server:**
    - Access phpMyAdmin or any other MySQL administration tool you have.
