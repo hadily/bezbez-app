@@ -11,7 +11,7 @@ Here's a breakdown of the steps  to set the server:
    - Activate the virtual environment: `$ source venv/Scripts/activate`
    - Installing requirements.txt : `$ pip install -r requirements.txt`
    - create a `.gitignore ` file under `BEZBEZ-APP` and include in the .gitignore the venv the folder
-   
+
    - From now on any modification on the server should be done after activating the venv
 
 2. **Setting up the MySQL Server:**
@@ -20,6 +20,7 @@ Here's a breakdown of the steps  to set the server:
    - Create a MySQL user named `admin` with the password `admin`. ` CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin'; `
    - Grant all privileges to the `admin` user for the `bezbez` database.  `GRANT ALL PRIVILEGES ON bezbez . * TO 'admin'@'localhost' `
    - Flush privileges to apply the changes. ` FLUSH PRIVILEGES; `
+   - Any Modifications you want to do on the details related to database credentials are in /server/settings.py 
 
 3. **Back to the Django Project:**
    - After configuring MySQL, return to your Django project directory.
