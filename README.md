@@ -1,28 +1,25 @@
-Setting the server up
 
 
- First you need to set your virtual enviroment so the dependecies of this project and versions are isolated.
-$ cd server
-$ pip install virtualenv
-$ virtualenv venv
-$ source venv/Scripts/activate   // to activate you virtual enviroments  
-(every modification done after on the server should be after activating the venv )
+Here's a breakdown of the steps  to set the server:
 
-Set the MYSQL server
+1. **Setting up the Virtual Environment:**
+// The virtual enviroment is set for depedencies and versions of the project to be isolated from the rest //
+   - Change directory to the server folder: `$ cd server`
+   - Install virtualenv if not already installed: `$ pip install virtualenv`
+   - Create a virtual environment  ` virtualenv venv`
+   - Activate the virtual environment: ` source venv/Scripts/activate`
+   - From now on any modification on the server should be done after activating the venv 
 
-// Acces the phpmyadmin
+2. **Setting up the MySQL Server:**
+   - Access phpMyAdmin or any other MySQL administration tool you have.
+   - Create a new database named `bezbez`. ` CREATE DATABASE bezbez; `
+   - Create a MySQL user named `admin` with the password `admin`. ` CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin'; `
+   - Grant all privileges to the `admin` user for the `bezbez` database.  `GRANT ALL PRIVILEGES ON bezbez . * TO 'admin'@'localhost' `
+   - Flush privileges to apply the changes. ` FLUSH PRIVILEGES; `
 
-2. create database bezbez    
-3. CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
-4. GRANT ALL PRIVILEGES ON `bezbez` . * TO 'admin'@'localhost';
-FLUSH PRIVILEGES; 
-
-// now back to our project 
-$ python manage.py makemigrations
-$ python manage.py migrate
-$ python manage.py runserver
-
-
-
-
+3. **Back to the Django Project:**
+   - After configuring MySQL, return to your Django project directory.
+   - Run Django's `python manage.py makemigrations` command to create migrations based on the changes you've made to your models.
+   - Apply the migrations to the database using `python manage.py migrate`.
+   - Finally, start the Django development server with `python manage.py runserver`.
 
