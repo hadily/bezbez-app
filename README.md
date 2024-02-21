@@ -10,7 +10,7 @@ Here's a breakdown of the steps  to set the server:
    - Create a virtual environment  ` $ virtualenv venv`
    - Activate the virtual environment: `$ source venv/Scripts/activate`
    - Installing requirements.txt : `$ pip install -r requirements.txt`
-   - create a `.gitignore ` file under `BEZBEZ-APP` and include in the .gitignore the venv the folder
+   - create a `.gitignore ` file under `BEZBEZ-APP` and include in the `.gitignore` the `venv`  folder
 
    - From now on any modification on the server should be done after activating the venv
 
