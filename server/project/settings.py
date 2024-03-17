@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalog',
+    'shop',
+    
+    'rest_framework',
+
+
+    
+
 ]
 
 MIDDLEWARE = [
@@ -83,6 +91,9 @@ DATABASES = {
         'PORT'    : '3306',
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
+            'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES',
+        },
     }
 }
 
