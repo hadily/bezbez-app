@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog',
-    'shop',
+   
+   'shops',
+    'users',
+    'orders',
     
     'rest_framework',
 
@@ -88,11 +90,13 @@ DATABASES = {
         'USER'    : 'admin',                     # <-- UPDATED line
         'PASSWORD': 'admin',              # <-- UPDATED line
         'HOST'    : 'localhost',                # <-- UPDATED line
-        'PORT'    : '3306',
+        'PORT'    : '3308',
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
             'OPTIONS': {
             'sql_mode': 'STRICT_ALL_TABLES',
+             'charset': 'utf8mb4',
+             'collation': 'utf8mb4_unicode_ci',
         },
     }
 }
