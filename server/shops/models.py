@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from jupyterlab_server import slugify
@@ -5,7 +6,7 @@ from ckeditor.fields import RichTextField
 from users.models import Address  # Correct import statement for Address model
 
 class Shop(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True)  # Use Address model directly
     phone = models.CharField(max_length=100)

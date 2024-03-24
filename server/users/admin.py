@@ -1,11 +1,12 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, Address
 
-class CustomUserAdmin(admin.ModelAdmin):
-    list_display = ('user', 'phone', 'address', 'image')
+class CustomUserAdmin(UserAdmin):
+    list_display = ['username', 'email', 'phone', 'address']  # Adjust fields as needed
+
 
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ('address', 'city', 'country', 'zip', 'date_added')
-
+    list_display = ('address', 'city', 'country', 'zip_code')
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Address, AddressAdmin)

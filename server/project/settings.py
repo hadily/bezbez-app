@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,12 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
+       'ckeditor',
    'shops',
-    'users',
+    
     'orders',
     
     'rest_framework',
+
+
+'users',
+
 
 
     
@@ -57,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -76,6 +82,8 @@ TEMPLATES = [
         },
     },
 ]
+AUTH_USER_MODEL = 'users.CustomUser'
+
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
@@ -85,19 +93,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line 
-        'NAME'    : 'bezbez',                 # <-- UPDATED line 
-        'USER'    : 'admin',                     # <-- UPDATED line
-        'PASSWORD': 'admin',              # <-- UPDATED line
-        'HOST'    : 'localhost',                # <-- UPDATED line
-        'PORT'    : '3308',
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-            'OPTIONS': {
-            'sql_mode': 'STRICT_ALL_TABLES',
-             'charset': 'utf8mb4',
-             'collation': 'utf8mb4_unicode_ci',
-        },
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bezbez', 
+        'USER': 'postgres',
+        'PASSWORD': 'nada',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
 
@@ -142,3 +143,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CKEDITOR_CONFIGS = {
+    'default': {
+        # Your CKEditor configuration options here
+    }
+}
+
+# Silence CKEditor warning about outdated version
+SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']

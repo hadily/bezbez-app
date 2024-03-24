@@ -1,0 +1,18 @@
+http://127.0.0.1:8000/api/signup/?
+{
+    "email": "testuser@example.com",
+    "username": "testuser",
+    "password": "securepassword",
+    "phone": "1234567890",
+    "address": {
+        "address": "123 Test St",
+        "city": "Test City",
+        "country": "Test Country",
+        "zip": "12345"
+    }
+}
+http://127.0.0.1:8000/api/login/?
+{
+    "username": "testuser",
+    "password": "securepassword"
+}
