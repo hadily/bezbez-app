@@ -9,23 +9,32 @@ class AddressSerializer(serializers.ModelSerializer):
         model = Address
         fields = ('address', 'city', 'country', 'zip_code')  # Adjusted to match the model field name
 
+
 class SignupSerializer(serializers.ModelSerializer):
-    address = AddressSerializer(required=False)
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
 
     class Meta:
-        model = CustomUser
-        fields = ['email', 'username', 'password', 'phone', 'address', 'image']
+        model = User
+        fields = ['email', 'username', 'password', 'phone', 'first_name', 'last_name']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        address_data = validated_data.pop('address', None)
-        user = CustomUser.objects.create_user(**validated_data)
-        
-        if address_data:
-            Address.objects.create(user=user, **address_data)  # Pass 'user' explicitly to associate with the user
+        user_manager = User.objects
+        return user_manager.create_user(
+            email=validated_data['email'],
+            username=validated_data['username'],
+            password=validated_data['password'],
+            phone=validated_data['phone'],
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name']
+        )
 
-        return user
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True)
     confirm_new_password = serializers.CharField(required=True)
+class UpdateProfileSerialize(serializers.Serializer):
+    phone = serializers.CharField(required=True)
+    address = AddressSerializer(required=True)
+    

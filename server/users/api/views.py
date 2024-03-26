@@ -1,11 +1,12 @@
 # api/views.py
+from venv import logger
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
 
 from ..models import CustomUser
-from .serializers import SignupSerializer
+from .serializers import SignupSerializer, UpdateProfileSerialize
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -19,34 +20,54 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth.backends import ModelBackend
+from users.models import CustomUser  # Import your CustomUser model
 
+
+class EmailBackend(ModelBackend):
+    def authenticate(self, request, username=None, password=None, **kwargs):
+        if username is None:
+            return None
+
+        try:
+            user = User.objects.get(email=username)
+        except User.DoesNotExist:
+            return None
+
+        if user.check_password(password):
+            return user
+        else:
+            return None
 
 class UserLogin(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data,
-                                           context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
-        return Response({
-            'token': token.key,
-            'user_id': user.pk,
-            'email': user.email
-        })
+        # Get the username_or_email and password from the request data
+        username_or_email = request.data.get('username_or_email')
+        password = request.data.get('password')
 
+        if username_or_email is None or password is None:
+            return Response({'error': 'Both username_or_email and password are required'}, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['POST'])
-def user_login(request):
-    username = request.data.get('username')
-    password = request.data.get('password')
+        # Authenticate using custom email backend
+        user = authenticate(request, username=username_or_email, password=password)
 
-    user = authenticate(username=username, password=password)
+        if user is not None and user.is_active:
+            # User authenticated successfully, generate token
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({
+                'token': token.key,
+                'user_id': user.pk,
+          
+            })
+        else:
+            # Invalid credentials or inactive user
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
-    if user:
-        return Response({'detail': 'Login successful'}, status=status.HTTP_200_OK)
-    else:
-        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-    
+    def get_authenticators(self):
+        # Override get_authenticators to add EmailBackend for email-based authentication
+        authenticators = super().get_authenticators()
+        authenticators.insert(0, EmailBackend())  # Add EmailBackend as the first authenticator
+        return authenticators
 @api_view(['POST'])
 def user_signup(request):
     serializer = SignupSerializer(data=request.data)
@@ -64,7 +85,6 @@ def user_signup(request):
         return Response({'detail': 'Signup successful'}, status=status.HTTP_201_CREATED)
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 class ChangePasswordView(APIView):
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
@@ -119,3 +139,17 @@ class LogoutView(APIView):
     def post(self, request):
         request.user.auth_token.delete()
         return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)
+class UpdateProfileview(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+
+    def post(self, request):
+        serializer = UpdateProfileSerialize(data=request.data)
+        if serializer.is_valid():
+            user = request.user
+            user.phone = serializer.data.get('phone')
+            user.save()
+
+            return Response({'detail': 'Profile updated successfully'}, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

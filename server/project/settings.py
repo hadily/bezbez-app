@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 
@@ -161,3 +161,11 @@ REST_FRAMEWORK = {
 
 # Silence CKEditor warning about outdated version
 SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default backend for username/password authentication
+      'users.api.custom_auth_backends.EmailAuthBackend',  # Custom backend for email/password authentication
+    
+]
+
+import os
+

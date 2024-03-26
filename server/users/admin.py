@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, Address
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ['username', 'email', 'phone', 'address']  # Adjust fields as needed
+    list_display = ['username', 'email', 'phone']  # Adjust fields as needed
 
 
 class AddressAdmin(admin.ModelAdmin):
