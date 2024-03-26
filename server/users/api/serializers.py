@@ -25,3 +25,7 @@ class SignupSerializer(serializers.ModelSerializer):
             Address.objects.create(user=user, **address_data)  # Pass 'user' explicitly to associate with the user
 
         return user
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+    confirm_new_password = serializers.CharField(required=True)

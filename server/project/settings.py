@@ -42,6 +42,8 @@ INSTALLED_APPS = [
    'shops',
     
     'orders',
+        'rest_framework.authtoken',
+
     
     'rest_framework',
 
@@ -147,6 +149,14 @@ CKEDITOR_CONFIGS = {
     'default': {
         # Your CKEditor configuration options here
     }
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 }
 
 # Silence CKEditor warning about outdated version
