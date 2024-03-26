@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>  <br><br>
+
+    
+    <ion-buttons slot="start">
+      <button onclick="window.location.href='/login';">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title size="large"> Profile</ion-title>
+    
+  </ion-toolbar>
+</ion-header><br><br>
+
+
+
+<ion-content padding>
+<label for="slider"></label>
+
+<div class="wrapper">
+	<div class="profile">
+		<img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
+		
+	</div> <br>
+
+  <form #registrationForm="ngForm">
+
+    <div class="mb-3 input-icon">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <input type="text" class="form-control" id="Username" placeholder="Username">
+    </div>
+    
+    
+    <div class="mb-3 input-icon">
+      <ion-icon name="mail-outline"></ion-icon>
+      <input type="email" class="form-control" id="email" placeholder="E-mail">
+    </div>
+
+    <div class="mb-3 input-icon">
+      <input type="password" class="form-control" id="password" placeholder="........................">
+    </div><br>
+    <br>
+    
+    <div class="edit-button" onclick="window.location.href='/edit-profile';">
+      <ion-icon name="create-outline"></ion-icon>
+            <p>Edit profile</p>
+    </div>
+    
+    <div class="settings-button" onclick="window.location.href='/settings';">
+      <ion-icon class="settings-icon" name="settings-outline"></ion-icon>
+      <p>Settings</p>
+    </div>
+    <div class="logout-button" onclick="window.location.href='/login';">
+      <ion-icon class="logout-icon" name="log-out-outline"></ion-icon>
+      <p>Log Out</p>
+    </div>
+   
+    
+
+  </form>
+</div>
+
+</ion-content>

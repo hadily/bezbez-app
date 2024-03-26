@@ -1,0 +1,61 @@
+.subtitle {
+  margin-top:10px; 
+  margin-left:12px; 
+
+}
+
+//form
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20vh; /* Ajustez l'espacement supérieur pour centrer verticalement */
+}
+
+/* Style pour les champs de saisie */
+
+
+  .inputs input[type="text"] {
+    width: 40px; /* Ajustez la largeur selon vos besoins */
+    height: 40px; /* Ajustez la hauteur selon vos besoins */
+    text-align: center;
+    font-size: 17px; /* Ajustez la taille de la police selon vos besoins */
+    border: none;
+    border: 1.5px solid #000000; /* Ajoutez une bordure aux champs */
+    border-radius: 5px; /* Arrondissez les coins pour obtenir des carrés */
+    margin-right: 5px; /* Ajoutez une marge à droite pour espacer les champs */
+  }
+  
+
+
+
+
+
+
+
+ /// style du bouton 
+  
+ ion-button {
+  --background: #374375;
+  width: 90%;
+  margin-left: 12px;
+  padding: 10rem 0.75rem;
+  font-size: 1.3rem;
+}
+
+
+
+
+// style de derniere phrase de login
+a {
+  color: #891159;  
+}
+
+
+p{
+
+  margin-left: 10px;
+}

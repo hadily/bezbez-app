@@ -1,0 +1,200 @@
+  ///fleche 
+   ion-icon {
+  font-size: 24px;
+}
+
+  
+
+  
+  // ------------------------------------------------
+  
+  $purple-gradient: linear-gradient(45deg, rgba(87,29,146,1) 0%,rgba(172,25,102,1) 100%);
+  $purple-gradient: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+  $blue1-gradient: linear-gradient(to bottom right, #5E5AEC, #3F9EFC);
+  $blue2-gradient: linear-gradient(to bottom right, #6452E9, #639FF9);
+  $shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
+  
+  // ------------------------------------------------
+  
+  
+  
+  .wrapper {
+    width: 320px;
+    height: 670px;
+    background: #efeff0;
+    transition: background 0.20s ease;
+    border-radius: 50px;
+    padding: 20px;
+    margin: 0 auto; /* To center horizontally */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      
+      
+      .profile {
+          margin-top: 0rem;
+          position: relative;
+          
+          &:after {
+              width: 100%;
+              height: 2px;
+              content: ' ';
+              display: block;
+              margin-top: 1.3em;
+              background: #49494a;
+          }
+          
+         
+          .thumbnail {
+              width: 124px;
+              height: 124px;
+              display: flex;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 1.5em;
+              border-radius: 100%;
+              box-shadow: $shadow;
+          }
+         
+          
+          
+          
+        
+          
+      }
+    }
+
+
+    
+.subtitle {
+  margin-top:10px; 
+  margin-left:12px; 
+
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #080000;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left:12px; 
+
+}
+
+.form-control {
+  display: block;
+  width: 90%;
+  margin-left: 12px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.5px solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon ion-icon {
+  position: absolute;
+  margin: 10px;
+  font-size: 17px;
+  padding-left: 20px;
+}
+
+.form-control {
+  padding-left: 40px; 
+}
+
+::placeholder {
+  color: black;
+  opacity: 1; 
+}
+
+.form-control {
+  background-color: #e1e1e1;
+}
+
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #891159; 
+}
+
+ion-icon {
+  margin-right: 5px; 
+}
+
+
+.no-underline {
+  text-decoration: none;
+}
+
+.link-black {
+  color: black; 
+}
+
+.chevron-black {
+  color: black; 
+}
+      
+ion-icon[name="settings-outline"] {
+  color: black;
+}
+
+.logout-button, .settings-button, .edit-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px; /* Coins arrondis */
+  transition: background-color 0.3s ease; /* Animation de transition */
+  margin-top: 20px; /* Marge supérieure entre les boutons */
+}
+
+.logout-button:hover, .settings-button:hover, .edit-button:hover {
+  background-color: #e0e0e0; /* Changement de couleur de fond au survol */
+}
+
+.logout-icon, .settings-icon, .create-outline-icon {
+  font-size: 24px; /* Taille de l'icône */
+  margin-right: 10px; /* Marge à droite pour l'espacement */
+}
+
+/* Style du texte pour les boutons */
+.logout-button p, .settings-button p, .edit-button p {
+  margin: 0; /* Supprime les marges par défaut */
+  font-size: 16px; /* Taille de la police */
+  color: #333; /* Couleur du texte */
+}
+
+
+
+.settings-button {
+  color: #000000; /* Couleur du texte */
+
+}
+
+
+

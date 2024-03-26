@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <br>
+    <br>
+    <ion-title size="large">Login account</ion-title>
+    <p class="subtitle">Please login with registrated account</p>
+
+  </ion-toolbar>
+</ion-header><br><br><br>
+
+
+
+
+<ion-content padding>
+  <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+
+    <div class="mb-3 input-icon">
+      <label for="Email" class="form-label">Email </label><br>
+      <ion-icon name="mail-outline"></ion-icon>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter your e-mail"
+        [(ngModel)]="email"
+        name="email"
+        #emailControl="ngModel"
+        required
+        email
+      >
+      <div *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)" class="error-message">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <div class="mb-3 input-icon">
+      <label for="password" class="form-label">Password</label><br>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="........................"
+        [(ngModel)]="password"
+        name="password"
+        #passwordControl="ngModel"
+        required
+        minlength="8"
+      >
+      <div *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)" class="error-message">
+        Password is required.
+      </div>
+    </div>
+    <br>
+    
+
+    <p>
+      <a href="/forgetpassword" class="forget-password-link">Forgot password ?</a>
+    </p>
+    <br>
+    <br><br><br><br>
+    
+    
+
+    <ion-button expand="block" type="submit">Sign In</ion-button>
+  </form>
+  <br><br><br>
+  
+
+  <p>
+    Don’t have a account?   <a href="/signup">Sign Up</a>
+  </p>
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <br>
+    <br>
+    <ion-title size="large">Create account</ion-title>
+    <p class="subtitle">To continue, sign up</p>
+  </ion-toolbar>
+</ion-header>
+
+<br><br><br>
+
+<ion-content padding>
+  <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+
+    <div class="mb-3 input-icon">
+      <label for="Username" class="form-label">Username</label><br>
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <input
+        type="text"
+        class="form-control"
+        id="Username"
+        placeholder="Enter your username"
+        [(ngModel)]="username"
+        name="username"
+        #usernameControl="ngModel"
+        required
+      >
+      <div *ngIf="usernameControl.invalid && usernameControl.touched" class="error-message">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="mb-3 input-icon">
+      <label for="Email" class="form-label">Email </label><br>
+      <ion-icon name="mail-outline"></ion-icon>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter your e-mail"
+        [(ngModel)]="email"
+        name="email"
+        #emailControl="ngModel"
+        required
+        email
+      >
+      <div *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)" class="error-message">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <div class="mb-3 input-icon">
+      <label for="password" class="form-label">Password</label><br>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="........................"
+        [(ngModel)]="password"
+        name="password"
+        #passwordControl="ngModel"
+        required
+        minlength="8"
+      >
+      <div *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)" class="error-message">
+        Password is required and must be at least 8 characters.
+      </div>
+    </div>
+
+    <br><br>
+    <ion-button expand="block" type="submit">Sign Up</ion-button>
+  </form>
+  <br><br>
+  <p>
+    You already have an account? <a href="/login">Login</a>
+  </p>
+</ion-content>

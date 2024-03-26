@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <br><br>
+    <ion-buttons slot="start">
+      <button onclick="window.location.href='/login';">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title size="large">Authy Verification</ion-title>
+    <p class="subtitle">Copy the verification code in your authy application</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form class="form" (submit)="onSubmit()">
+    <div class="inputs">
+      <input id="input1" type="text" maxlength="1">
+      <input id="input2" type="text" maxlength="1">
+      <input id="input3" type="text" maxlength="1">
+      <input id="input4" type="text" maxlength="1">
+      <input id="input5" type="text" maxlength="1">
+    </div>
+    
+    <p>
+      Don’t receive code ? <a href="/otp">Re-send</a>
+    </p>
+    <ion-button type="submit" expand="block" >
+      Submit Verification 
+    </ion-button>
+  </form>
+</ion-content>
