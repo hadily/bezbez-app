@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
        'ckeditor',
    'shops',
+       'imagekit',
+         'ckeditor',
+
     
     'orders',
         'rest_framework.authtoken',
