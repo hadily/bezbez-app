@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-       'ckeditor',
+       
    'shops',
        'imagekit',
          'ckeditor',
+          "corsheaders",
 
     
     'orders',
@@ -67,9 +68,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+"http://localhost:8100",
+
+]
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
@@ -170,5 +176,4 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 
-import os
 

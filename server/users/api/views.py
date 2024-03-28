@@ -73,13 +73,10 @@ def user_signup(request):
     serializer = SignupSerializer(data=request.data)
     if serializer.is_valid():
         email = serializer.validated_data['email']
-        phone = serializer.validated_data['phone']
 
         if CustomUser.objects.filter(email=email).exists():
             return Response({'error': 'Email already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
-        if CustomUser.objects.filter(phone=phone).exists():
-            return Response({'error': 'Phone number already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
         serializer.save()
         return Response({'detail': 'Signup successful'}, status=status.HTTP_201_CREATED)

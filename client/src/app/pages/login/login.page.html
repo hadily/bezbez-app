@@ -3,33 +3,31 @@
     <br>
     <br>
     <ion-title size="large">Login account</ion-title>
-    <p class="subtitle">Please login with registrated account</p>
-
+    <p class="subtitle">Please login with registered account</p>
   </ion-toolbar>
-</ion-header><br><br><br>
+</ion-header>
 
-
-
+<br><br><br>
 
 <ion-content padding>
-  <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
 
     <div class="mb-3 input-icon">
-      <label for="Email" class="form-label">Email </label><br>
-      <ion-icon name="mail-outline"></ion-icon>
+      <label for="username_or_email" class="form-label">Email or Username</label><br>
+      <ion-icon name="person-outline"></ion-icon>
       <input
-        type="email"
+        type="text"
         class="form-control"
-        id="email"
-        placeholder="Enter your e-mail"
-        [(ngModel)]="email"
-        name="email"
-        #emailControl="ngModel"
+        id="username_or_email"
+        placeholder="Enter your email or username"
+        [(ngModel)]="usernameOrEmail"
+        name="username_or_email"
+        #usernameOrEmailControl="ngModel"
         required
-        email
+        (input)="clearCredentialsError()"
       >
-      <div *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)" class="error-message">
-        Please enter a valid email address.
+      <div *ngIf="usernameOrEmailControl.invalid && (usernameOrEmailControl.touched || usernameOrEmailControl.dirty)" class="error-message">
+        Please enter a valid email or username.
       </div>
     </div>
 
@@ -40,34 +38,33 @@
         type="password"
         class="form-control"
         id="password"
-        placeholder="........................"
+        placeholder="Enter your password"
         [(ngModel)]="password"
         name="password"
         #passwordControl="ngModel"
         required
-        minlength="8"
+        (input)="clearCredentialsError()"
       >
+      <div *ngIf="credentialsError" class="error-message">
+        {{ credentialsError }}
+      </div>
+    
       <div *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)" class="error-message">
-        Password is required.
+        Password is required and must be at least 8 characters.
       </div>
     </div>
     <br>
     
-
     <p>
-      <a href="/forgetpassword" class="forget-password-link">Forgot password ?</a>
+      <a href="/forgetpassword" class="forget-password-link">Forgot password?</a>
     </p>
     <br>
-    <br><br><br><br>
-    
-    
 
     <ion-button expand="block" type="submit">Sign In</ion-button>
   </form>
   <br><br><br>
   
-
   <p>
-    Don’t have a account?   <a href="/signup">Sign Up</a>
+    Don’t have an account? <a href="/signup">Sign Up</a>
   </p>
 </ion-content>
