@@ -1,0 +1,52 @@
+<ion-header>
+  <div class="header-content">
+    <img src="../../../assets/images/logo-bezbez.png" alt="Logo">
+    <p class="title">Welcome to bezbez!</p>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="upper-content">
+    <div class="custom-searchbar">
+      <input type="text" placeholder="search..." class="search-input">
+      <button class="search-button">
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="buttons-container">
+      <button class="button" (click)="navigateToAllItems()">
+        <ion-icon name="apps-outline"></ion-icon>
+        <p>All Items</p>
+      </button>
+      <button class="button current-button">
+        <ion-icon name="albums"></ion-icon>
+        <p>Check Bezbezes</p>
+      </button>
+    </div>
+  </div>
+  
+
+  <div class="bezbezes-container">
+    <app-bezbez *ngFor="let bezbez of bezbezes" [bezbez]="bezbez"></app-bezbez>
+  </div>
+
+  <div class="empty-space"></div>
+</ion-content>
+
+<div class="bottom-navbar">
+  <button class="navbar-button">
+    <ion-icon name="home"></ion-icon>
+    <div class="indicator"></div>
+  </button>
+  <button class="navbar-button">
+    <ion-icon name="bag-handle-outline"></ion-icon>
+  </button>
+  <button class="navbar-button">
+    <ion-icon name="heart-outline"></ion-icon>
+  </button>
+  <button class="navbar-button">
+    <ion-icon name="person-outline"></ion-icon>
+  </button>
+</div>

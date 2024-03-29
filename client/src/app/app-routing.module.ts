@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ItemComponent } from './components/item/item.component';
+
 
 const routes: Routes = [
   {
@@ -22,12 +24,23 @@ const routes: Routes = [
   {
     path: 'home/p3',
     loadChildren: () => import('./pages/home-p3/home-p3.module').then( m => m.HomeP3PageModule)
-  }
+  },
+  {
+    path: 'all-items',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },   {
+    path: 'check',
+    loadChildren: () => import('./pages/check/check.module').then( m => m.CheckPageModule)
+  },
+
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(
+      routes, 
+      { preloadingStrategy: PreloadAllModules }
+    )
   ],
   exports: [RouterModule]
 })

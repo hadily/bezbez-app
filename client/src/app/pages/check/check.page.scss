@@ -1,0 +1,195 @@
+/* Colors */
+$navy: #374375;
+$periwinkle: #BABDE2;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+
+ion-header {
+    height: 60px; 
+    margin-top: 20px;
+    margin-bottom: 5px;
+  
+    .header-content {
+      display: flex;
+      align-items: center;
+      padding-left: 10px; 
+      height: 100%; 
+    }
+  
+    img {
+      width: 80px; 
+      height: auto; 
+      margin-right: 10px; 
+    }
+  
+    .title {
+      font-family: 'Sora', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 120%;
+      letter-spacing: -2%;
+      margin: 0; 
+    }
+}
+
+
+.upper-content {
+    height: 110px;
+    width: 100%;
+    position: fixed;
+    background-color: white; 
+    z-index: 101;
+} 
+
+.custom-searchbar {
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5; 
+    border-radius: 20px;
+    height: 50px; 
+    padding: 0 10px;
+    margin: 0 15px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100; // Ensure it's above other content
+}
+  
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    height: 100%;
+    font-size: 16px;
+    color: #C2C2C2;
+}
+  
+.search-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+  
+.search-button ion-icon {
+    font-size: 24px;
+    color: #C2C2C2;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 70px; 
+    position: fixed; // Keep the buttons container fixed
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+  
+.button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; 
+    margin-right: 10px;
+    border: .2px solid rgb(46, 45, 45);
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 10px; 
+    height: 30px; 
+}
+
+.button ion-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.button p {
+    font-size: 12px;
+    margin-left: 2px;
+    font-family: "Encode Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+  
+.current-button {
+    background-color: $navy;
+    color: white;
+}
+  
+.bezbezes-container {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    gap: 15px;
+    position: relative;
+    z-index: 99;
+}
+
+.empty-space {
+    height: 180px;
+}
+
+.bottom-navbar {
+    width: 300px;
+    height: 64px;
+    background-color: $navy;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 30px; /* Adjust the value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 45px; /* Adjust horizontal gap between items */
+    z-index: 101;
+}
+  
+.navbar-button {
+    width: 50px;
+    height: 50px;
+    background-color: #445078;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative for absolute positioning of indicator */
+    transition: background-color 0.3s ease;
+}
+  
+.navbar-button ion-icon {
+    font-size: 26px;
+    color: white;
+}
+
+.navbar-button:hover {
+    background-color: #2d3e5f; /* Adjust hover background color */
+}
+
+.indicator {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3px; /* Position the dot below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+  
