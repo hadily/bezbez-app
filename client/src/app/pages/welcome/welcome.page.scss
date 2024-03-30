@@ -17,7 +17,7 @@ ion-header {
     height: 60px; 
     margin-top: 20px;
     margin-bottom: 5px;
-  
+    
     .header-content {
       display: flex;
       align-items: center;
@@ -139,6 +139,15 @@ ion-header {
     height: 180px;
 }
 
+ion-footer {
+    height: 100px; 
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+}
 
 .bottom-navbar {
     width: 300px;
@@ -149,10 +158,10 @@ ion-header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    bottom: 30px; /* Adjust the value as needed */
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0 45px; /* Adjust horizontal gap between items */
+    padding: 0 45px; 
     z-index: 101;
 }
   

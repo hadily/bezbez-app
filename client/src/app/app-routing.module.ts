@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ItemComponent } from './components/item/item.component';
 
 
 const routes: Routes = [
@@ -28,11 +27,27 @@ const routes: Routes = [
   {
     path: 'all-items',
     loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
-  },   {
+  },   
+  {
     path: 'check',
     loadChildren: () => import('./pages/check/check.module').then( m => m.CheckPageModule)
+  }, 
+  { 
+    path: 'all-items/item-details/:item_id', 
+    loadChildren: () => import('./pages/item-details/item-details.module').then(m => m.ItemDetailsPageModule)
   },
-
+  {
+    path: 'cart',
+    loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'likes',
+    loadChildren: () => import('./pages/likes/likes.module').then( m => m.LikesPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({

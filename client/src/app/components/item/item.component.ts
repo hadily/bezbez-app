@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -8,7 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemComponent  implements OnInit {
   @Input() item: any;
 
-  constructor() { }
+  constructor(private router: Router) {}
+
+  navigateToItemDetails(itemId: number) {
+    this.router.navigate(['/item-details', itemId]);
+  }
 
   ngOnInit() {}
 
