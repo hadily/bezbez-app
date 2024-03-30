@@ -1,0 +1,55 @@
+<ion-header>
+  <div class="header-content">
+    <ion-icon name="chevron-back-outline" class="back" (click)="goBack()"></ion-icon>
+    <p class="title">Bezbez Store</p>
+    <ion-icon name="storefront-outline"></ion-icon>
+  </div>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="upper-content">
+    <div class="bezbez-details">
+      <div class="bezbez-info">
+        <img src="../../../assets/images/bezbez-1.jpeg" alt="bezbez-logo" class="bezbez-logo">
+        <p class="bezbez-name">bezbez-name</p>
+      </div>
+      <div class="bezbez-follow">
+        <button class="button-navy">
+          <p class="button-text">Follow</p>
+        </button>
+      </div>
+    </div>
+  
+    <div class="buttons-container">
+      <button class="button">
+        <ion-icon name="storefront-outline"></ion-icon>
+        <p>Main Page</p>
+      </button>
+      <button class="button current-button">
+        <ion-icon name="apps"></ion-icon>
+        <p>All Products</p>
+      </button>
+      <button class="button">
+        <ion-icon name="star" class="star-icon"></ion-icon>
+        <p>Most Popular</p>
+      </button>
+    </div>
+  </div>
+  
+  <div class="sale-content">
+    <img src="../../../assets/images/sale-image.jpeg" alt="sale-image">
+    <div class="sale-text">
+      <p class="percentage">50% OFF</p>
+      <p class="text">your first purchase</p>
+    </div>
+  </div>
+
+  <div class="items-container">
+    <app-store-items *ngFor="let item of items" [item]="item" (click)="navigateToItemDetails(item.item_id)"></app-store-items>
+  </div>
+
+  <div class="empty-space"></div>
+
+</ion-content>
