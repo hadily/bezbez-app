@@ -37,5 +37,9 @@ export class CartPage implements OnInit {
   shippingFee = 7.00;
   subTotal = 207;
 
+  navigateTo(destination: string) {
+    this.router.navigate([destination]);
+  }
+
 
 }

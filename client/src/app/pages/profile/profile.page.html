@@ -41,16 +41,16 @@
 <ion-footer>
   <div class="bottom-navbar">
     <button class="navbar-button">
-      <ion-icon name="home-outline"></ion-icon>
+      <ion-icon name="home-outline" (click)="navigateTo('/all-items')"></ion-icon>
     </button>
     <button class="navbar-button">
-      <ion-icon name="bag-handle-outline"></ion-icon>
+      <ion-icon name="bag-handle-outline" (click)="navigateTo('/cart')"></ion-icon>
     </button>
     <button class="navbar-button">
-      <ion-icon name="heart-outline"></ion-icon>
+      <ion-icon name="heart-outline" (click)="navigateTo('/likes')"></ion-icon>
     </button>
     <button class="navbar-button">
-      <ion-icon name="person"></ion-icon>
+      <ion-icon name="person" (click)="navigateTo('/profile')"></ion-icon>
       <div class="indicator"></div>
     </button>
   </div>

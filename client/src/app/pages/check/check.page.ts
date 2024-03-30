@@ -25,4 +25,8 @@ export class CheckPage implements OnInit {
     this.router.navigate(['/all-items']);
   }
 
+  navigateTo(destination: string) {
+    this.router.navigate([destination]);
+  }
+
 }

@@ -31,4 +31,8 @@ export class LikesPage implements OnInit {
     this.refreshEvent.emit();
   }
 
+  navigateTo(destination: string) {
+    this.router.navigate([destination]);
+  }
+
 }

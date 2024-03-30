@@ -32,4 +32,8 @@ export class WelcomePage implements OnInit {
     this.router.navigateByUrl(destination);
   }
 
+  navigateTo(destination: string) {
+    this.router.navigate([destination]);
+  }
+
 }
