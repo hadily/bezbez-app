@@ -1,0 +1,36 @@
+<ion-header>
+  <div class="header-content">
+    <ion-icon name="chevron-back-outline" class="back" (click)="goBack()"></ion-icon>
+    <p class="title">Likes</p>
+    <ion-icon name="heart-outline"></ion-icon>
+  </div>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="items-container">
+    <app-liked-items *ngFor="let item of items" [item]="item"></app-liked-items>
+  </div>
+
+  <div class="empty-space"></div>
+
+</ion-content>
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <button class="navbar-button">
+      <ion-icon name="home-outline" (click)="navigateTo('/all-items')"></ion-icon>
+    </button>
+    <button class="navbar-button">
+      <ion-icon name="bag-handle-outline" (click)="navigateTo('/cart')"></ion-icon>
+    </button>
+    <button class="navbar-button">
+      <ion-icon name="heart" (click)="navigateTo('/likes')"></ion-icon>
+      <div class="indicator"></div>
+    </button>
+    <button class="navbar-button">
+      <ion-icon name="person-outline" (click)="navigateTo('/profile')"></ion-icon>
+    </button>
+  </div>
+</ion-footer>
