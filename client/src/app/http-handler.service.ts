@@ -23,4 +23,11 @@ export class HttpHandlerService {
       })
     );
   }
+  logout(userData:any){
+    return this.http.post<any>('http://127.0.0.1:8000/api/logout/', userData).pipe(  
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error); 
+      })
+    );
+  }
 }
