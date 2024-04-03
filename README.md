@@ -37,8 +37,8 @@
    
    Any Modifications you want to do on the details related to database credentials are in /server/settings.py 
 
-3. **Back to the Django Project:**
-   - After configuring MySQL, return to your Django project directory.
+**5. Back to the Django Project**
+   - After configuring the database, return to your Django project directory.
    - Run Django's `$ python manage.py makemigrations` command to create migrations based on the changes you've made to your models.
    - Apply the migrations to the database using `$ python manage.py migrate`.
    - Finally, start the Django development server with `$ python manage.py runserver`.
