@@ -12,15 +12,19 @@
   <p class="small-regular">Seemless payment and speedy delivery. Start shopping smarter today.</p>
 
   <div class="button-container">
-    <button class="button-navy"><h5>Start your bezbez</h5></button>
+    <ion-button style="--background:#374375" class="button-navy">
+      <h5 slot="start">Start your bezbez</h5>
+    </ion-button>
   </div>
 
   <div class="button-container">
-    <button class="button-periwinkle"><h5>Sign up</h5></button>
+    <ion-button style="--background:#9894b4" class="button-periwinkle">
+      <h5 slot="start">Sign up</h5>
+    </ion-button>
   </div>
 
-  <div class="skip-text">
-    <p class="large-semi-bold">Already have an account?</p>
-  </div>
+  <ion-button class="skip-btn" fill="clear">
+    <p slot="start" class="large-semi-bold">Already have an account?</p>
+  </ion-button>
 
 </ion-content>
