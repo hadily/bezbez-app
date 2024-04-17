@@ -52,6 +52,18 @@ const routes: Routes = [
     path: 'store',
     loadChildren: () => import('./pages/store/store.module').then( m => m.StorePageModule)
   },
+  {
+    path: 'search-articles',
+    loadChildren: () => import('./pages/search-articles/search-articles.module').then( m => m.SearchArticlesPageModule)
+  },
+  {
+    path: 'search-bezbezes',
+    loadChildren: () => import('./pages/search-bezbezes/search-bezbezes.module').then( m => m.SearchBezbezesPageModule)
+  },
+  {
+    path: 'payment-success',
+    loadChildren: () => import('./pages/payment-success/payment-success.module').then( m => m.PaymentSuccessPageModule)
+  },
 ];
 
 @NgModule({
