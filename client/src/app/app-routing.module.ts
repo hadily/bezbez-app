@@ -64,6 +64,18 @@ const routes: Routes = [
     path: 'payment-success',
     loadChildren: () => import('./pages/payment-success/payment-success.module').then( m => m.PaymentSuccessPageModule)
   },
+  {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'payment-method',
+    loadChildren: () => import('./pages/payment-method/payment-method.module').then( m => m.PaymentMethodPageModule)
+  },
+  {
+    path: 'add-card',
+    loadChildren: () => import('./pages/add-card/add-card.module').then( m => m.AddCardPageModule)
+  },
 ];
 
 @NgModule({

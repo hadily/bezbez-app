@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-button href="/payment" class="back-button">
+    <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+  </ion-button>
+  <p class="title">Payment Method</p>
+</ion-header>
+
+<ion-content>
+  <ion-button fill="outline" class="btn-content" (click)="toggleCheck(1)" [ngClass]="{'active': isChecked(1)}">
+    <img class="card-img" src="../../../assets/images/visa-card.png" alt="card-logo">
+    <p class="card-number">**** **** **** 4321</p>
+    <ion-icon class="payment-button-icon" [name]="isChecked(1) ? 'checkmark-circle' : 'checkmark-circle-outline'"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="outline" class="btn-content" (click)="toggleCheck(2)" [ngClass]="{'active': isChecked(2)}">
+    <img class="card-img" src="../../../assets/images/master-card.png" alt="card-logo">
+    <p class="card-number">**** **** **** 4321</p>
+    <ion-icon class="payment-button-icon" [name]="isChecked(2) ? 'checkmark-circle' : 'checkmark-circle-outline'"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="outline" href="/add-card" class="btn-content">
+    <ion-icon class="add-btn-icon" name="add-circle"></ion-icon>
+    <p class="new-card-txt">Add Payment Method</p>
+  </ion-button>
+  
+</ion-content>
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <ion-button style="--background:#374375" class="button-navy" href="/payment">
+      <h5 slot="start">Confirm Payment Method</h5>
+    </ion-button>
+  </div>
+</ion-footer>

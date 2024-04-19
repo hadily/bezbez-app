@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-button href="/all-items" class="back-button">
+    <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+  </ion-button>
+  <p class="title">Payment</p>
+</ion-header>
+
+<ion-content>
+
+  <div class="address-content">
+    <p class="address-header">Address</p>
+    <div class="map-content">
+      <img src="../../../assets/images/map-location.jpeg" alt="location">
+      <div class="address-details">
+        <p class="address-title">Current Position</p>
+        <p class="parag">05 Ave Taha Hussein, Tunis 1008</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-content">
+    <p class="products-header">Products</p>
+    <app-payment-product *ngFor="let item of items" [item]="item"></app-payment-product>
+  </div>
+
+  <div class="payment-method">
+    <p class="payment-header">Payment Method</p>
+    <ion-button fill="outline" href="/payment-method">
+      <img class="card-img" src="../../../assets/images/visa-card.png" alt="card-logo">
+      <p class="card-number">**** **** **** 4321</p>
+      <ion-icon class="payment-button-icon" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+    <div class="detail">
+      <p class="detail-title">Sub Total</p>
+      <p class="number">207.0 DT</p>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <ion-button style="--background:#374375" class="button-navy" href="/payment-success">
+      <h5 slot="start">Checkout Now</h5>
+    </ion-button>
+  </div>
+</ion-footer>
