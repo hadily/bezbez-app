@@ -1,0 +1,184 @@
+/* Colors */
+$navy: #374375;
+$periwinkle: #BABDE2;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 15px 0 10px;
+    height: 60px;
+    margin: 0;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.title {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin: 0; 
+    padding: 0; 
+}
+
+ion-icon {
+    font-size: 26px; 
+}
+
+.item-container {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    gap: 15px;
+    position: relative;
+    z-index: 99;
+}
+
+.empty-space {
+    height: 400px;
+}
+
+.payment {
+  position: fixed;
+  width: 90%;
+  bottom: 90px;
+  background-color: white;
+  padding: 20px;
+}
+
+.payment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail .title {
+    margin: 0;
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: auto;
+    letter-spacing: 0%;
+}
+
+.detail .number {
+    margin: 0;
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: auto;
+    letter-spacing: 0%;
+}
+
+.divider {
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.pay-button {
+    width: 111px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 70%;
+    margin-top: 5px;
+}
+
+.pay-button ion-icon {
+  margin-right: 5px;
+  font-size: 24px;
+}
+.pay-button p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 20%;
+    letter-spacing: .15px;
+}
+
+ion-footer {
+    height: 100px; 
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+}
+
+.bottom-navbar {
+    width: 300px;
+    height: 64px;
+    background-color: $navy;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 30px; /* Adjust the value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 45px; /* Adjust horizontal gap between items */
+    z-index: 100;
+}
+  
+.navbar-button {
+    width: 50px;
+    height: 50px;
+    background-color: #445078;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative for absolute positioning of indicator */
+    transition: background-color 0.3s ease;
+}
+  
+.navbar-button ion-icon {
+    font-size: 26px;
+    color: white;
+}
+
+.navbar-button:hover {
+    background-color: #2d3e5f; /* Adjust hover background color */
+}
+
+.indicator {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3px; /* Position the dot below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+}

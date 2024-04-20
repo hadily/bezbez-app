@@ -17,8 +17,8 @@
   
   .form-control {
     display: block;
-    width: 90%;
-    margin-left: 12px;
+    width: 70%;
+    margin: 0 auto; /* Centre le champ horizontalement */
     padding: 0.5rem 0.75rem;
     font-size: 1rem;
     line-height: 1;
@@ -28,7 +28,8 @@
     border: 0.5px solid #ced4da;
     border-radius: 0.5rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
+}
+
   
   .form-text {
     display: block;
@@ -51,7 +52,7 @@
     position: absolute;
     margin: 10px;
     font-size: 17px;
-    padding-left: 20px;
+    padding-left: 40px;
   }
   
   .form-control {

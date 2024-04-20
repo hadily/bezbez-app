@@ -14,13 +14,10 @@ Here's a breakdown of the steps  to set the server:
 
    - From now on any modification on the server should be done after activating the venv
 
-2. **Setting up the MySQL Server:**
-   - Access phpMyAdmin or any other MySQL administration tool you have.
-   - Create a new database named `bezbez`. ` CREATE DATABASE bezbez; `
-   - Create a MySQL user named `admin` with the password `admin`. ` CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin'; `
-   - Grant all privileges to the `admin` user for the `bezbez` database.  `GRANT ALL PRIVILEGES ON bezbez . * TO 'admin'@'localhost' `
-   - Flush privileges to apply the changes. ` FLUSH PRIVILEGES; `
-   - Any Modifications you want to do on the details related to database credentials are in /server/settings.py 
+2. **Setting up the postgreSQL Server:**
+
+   - Create a new database named `bezbez`.
+   - Accesss server/project/settings.py  in DATABASE set your postgresserverpassword
 
 3. **Back to the Django Project:**
    - After configuring MySQL, return to your Django project directory.
@@ -28,3 +25,7 @@ Here's a breakdown of the steps  to set the server:
    - Apply the migrations to the database using `$ python manage.py migrate`.
    - Finally, start the Django development server with `$ python manage.py runserver`.
 
+5. each time you pull
+ -  `$ pip install -r requirements.txt`
+ - `$ python manage.py makemigrations`
+-  `$ python manage.py migrate`

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditProfilePageRoutingModule } from './edit-profile-routing.module';
+import { HomeP2PageRoutingModule } from './home-p2-routing.module';
 
-import { EditProfilePage } from './edit-profile.page';
+import { HomeP2Page } from './home-p2.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditProfilePageRoutingModule
+    HomeP2PageRoutingModule
   ],
-  declarations: [EditProfilePage]
+  declarations: [HomeP2Page]
 })
-export class EditProfilePageModule {}
+export class HomeP2PageModule {}

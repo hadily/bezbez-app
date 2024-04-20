@@ -1,0 +1,56 @@
+<ion-header>
+  <div class="header-content">
+    <ion-icon name="chevron-back-outline" class="back" (click)="goBack()"></ion-icon>
+    <p class="title">Cart</p>
+    <ion-icon name="bag-handle-outline"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="items-container">
+    <app-cart-item *ngFor="let item of items" [item]="item"></app-cart-item>
+  </div>
+
+  <div class="empty-space"></div>
+
+
+  <div class="payment">
+    <div class="payment-details">
+      <div class="detail">
+        <p class="title">Total ({{ totalItems }} item{{ totalItems != 1 ? 's' : '' }})</p>
+        <p class="number">{{ totalPrice }} DT</p>
+      </div>
+      <div class="detail">
+        <p class="title">Shipping Fee</p>
+        <p class="number">{{ shippingFee }} DT</p>
+      </div>
+      <hr class="divider">
+      <div class="detail">
+        <p class="title">Sub Total</p>
+        <p class="number">{{ subTotal }} DT</p>
+      </div>
+    </div>
+    <button class="pay-button">
+      <ion-icon name="card-outline"></ion-icon>
+      <p>Pay</p>
+    </button>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <button class="navbar-button" [class.active]="activeLink === '/all-items'" (click)="navigateTo('/all-items')">
+      <ion-icon name="home-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" [class.active]="activeLink === '/cart'" (click)="navigateTo('/cart')">
+      <ion-icon name="bag-handle"></ion-icon>
+    </button>
+    <button class="navbar-button" [class.active]="activeLink === '/likes'" (click)="navigateTo('/likes')">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+    <button class="navbar-button"  routerLink="/profile">
+      <ion-icon name="person-outline"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

@@ -1,0 +1,30 @@
+<ion-header>
+  <div class="header-content">
+    <ion-buttons slot="start">
+      <button onclick="window.location.href='/profile';">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <div class="title-container">
+      <p class="title" style="margin-left: -70px;">Purchases</p>
+    </div>
+  </div>
+</ion-header>
+
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <button class="navbar-button" (click)="navigateTo('/all-items')">
+      <ion-icon name="home-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" (click)="navigateTo('/cart')">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" (click)="navigateTo('/likes')">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" (click)="navigateTo('/settings')">
+      <ion-icon name="settings-outline"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

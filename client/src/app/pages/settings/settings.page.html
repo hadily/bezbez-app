@@ -1,32 +1,68 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>  <br><br>
-
-    
+<ion-header>
+  <div class="header-content">
     <ion-buttons slot="start">
-      <button onclick="window.location.href='/profile';">
+      <button (click)="navigateTo('/profile')">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title size="large">Settings</ion-title>
-    
-  </ion-toolbar>
-</ion-header><br><br>
+    <div class="title-container">
+      <p class="title" style="margin-left: -70px;">Settings</p>
+    </div>
+  </div>
+</ion-header>
 
+<ion-content>
 
+  <div class="pfp-container">
+    <img src="../../../assets/images/profile.jpeg" alt="pfp">
+    <p class="user-name">your name</p>
+  </div>
 
-<ion-content padding>
-
-  <p>
-    <a  class="no-underline link-black">Terms & conditions</a>
-    <ion-icon name="chevron-forward-outline" class="chevron-black"></ion-icon>
-  </p>
-  <p>
-    <a  class="no-underline link-black">Language</a>
-    <ion-icon name="chevron-forward-outline" class="chevron-black"></ion-icon>
-  </p>
-  <p>
-    <a class="no-underline link-black">Country</a>
-    <ion-icon name="chevron-forward-outline" class="chevron-black"></ion-icon>
-  </p>
+  <div class="mb-3 input-icon">
+    <label for="username" class="form-label">Username</label><br>
+    <ion-icon name="person-outline"></ion-icon>
+    <input
+      type="text"
+      class="form-control"
+      id="Username"
+      placeholder="Enter username"
+      [(ngModel)]="username"
+      name="username"
+      #usernameOrEmailControl="ngModel"
+    >
+  </div>
+  <div class="mb-3 input-icon">
+    <label for="username_or_email" class="form-label">Email</label><br>
+    <ion-icon name="person-outline"></ion-icon>
+    <input
+      type="text"
+      class="form-control"
+      id="username_or_email"
+      placeholder="Enter your email"
+      [(ngModel)]="usernameOrEmail"
+      name="username_or_email"
+      #usernameOrEmailControl="ngModel"
+    >
+  </div>
  
+
+  <ion-button expand="block" (click)="saveChanges()">Save changes</ion-button>
+
 </ion-content>
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <button class="navbar-button" (click)="navigateTo('/all-items')">
+      <ion-icon name="home-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" (click)="navigateTo('/cart')">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" (click)="navigateTo('/likes')">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+    <button class="navbar-button" (click)="navigateTo('/settings')">
+      <ion-icon name="settings-outline"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

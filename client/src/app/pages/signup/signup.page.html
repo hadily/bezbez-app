@@ -13,6 +13,44 @@
   <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
 
     <div class="mb-3 input-icon">
+      <label for="firstName" class="form-label">First Name</label><br>
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        placeholder="Enter your first name"
+        [(ngModel)]="firstName"
+        name="firstName"
+        #firstNameControl="ngModel"
+        required
+      >
+      <div *ngIf="firstNameControl.invalid && firstNameControl.touched" class="error-message">
+        First name is required.
+      </div>
+    </div>
+
+    <div class="mb-3 input-icon">
+      <label for="lastName" class="form-label">Last Name</label><br>
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        placeholder="Enter your last name"
+        [(ngModel)]="lastName"
+        name="lastName"
+        #lastNameControl="ngModel"
+        required
+      >
+      <div *ngIf="lastNameControl.invalid && lastNameControl.touched" class="error-message">
+        Last name is required.
+      </div>
+    </div>
+
+    <!-- Existing fields for username, email, and password -->
+
+    <div class="mb-3 input-icon">
       <label for="Username" class="form-label">Username</label><br>
       <ion-icon name="person-circle-outline"></ion-icon>
       <input
@@ -25,6 +63,9 @@
         #usernameControl="ngModel"
         required
       >
+      <div *ngIf="usernameError" class="error-message">
+        {{ usernameError }}
+      </div>
       <div *ngIf="usernameControl.invalid && usernameControl.touched" class="error-message">
         Username is required.
       </div>
@@ -44,6 +85,10 @@
         required
         email
       >
+      <div *ngIf="emailError" class="error-message">
+        {{ emailError }}
+      </div>
+    
       <div *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)" class="error-message">
         Please enter a valid email address.
       </div>

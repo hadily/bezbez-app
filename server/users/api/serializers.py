@@ -16,7 +16,7 @@ class SignupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password', 'phone', 'first_name', 'last_name']
+        fields = ['email', 'username', 'password', 'first_name', 'last_name']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -25,16 +25,16 @@ class SignupSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             username=validated_data['username'],
             password=validated_data['password'],
-            phone=validated_data['phone'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name']
         )
-
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True)
     confirm_new_password = serializers.CharField(required=True)
-class UpdateProfileSerialize(serializers.Serializer):
-    phone = serializers.CharField(required=True)
-    address = AddressSerializer(required=True)
-    
+class UpdateProfileSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(required=False)
+    username = serializers.CharField(required=False)
+    class Meta:
+        model = User
+        fields = ('email', 'username')  # Specify fields for update

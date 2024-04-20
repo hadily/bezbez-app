@@ -1,79 +1,260 @@
-/* Styles de base pour l'icône */
+/* Colors */
+$navy: #374375;
+$periwinkle: #BABDE2;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+$red: #FB0303;
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+
+.header-content {
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 10px;
+    height: 60px;
+    margin: 0;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.title {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin: 0; 
+    padding: 0 9em; 
+}
+
+.pfp-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 80%;
+    height: 25%;
+    margin: 3em;
+    border: none;
+}
+
+.pfp-container img {
+    height: 190px;
+    width: 190px;
+    border-radius: 90px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 140%;
+    letter-spacing: .3%;
+    margin: 0;
+}
+
+.buttons-container {
+    width: 90%;
+    height: 30%;
+    flex-direction: column;
+    margin: 0.5em;
+    gap: 10px;
+} 
+
+.details {
+    display: flex;
+}
+
+.details ion-icon {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.buttons-container button {
+    width: 380px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    margin: 1.3em;
+    color: $navy;
+}
+
+
+
+.buttons-container p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin: 0;
+}
+
 ion-icon {
-    font-size: 24px; 
-  }
-  
-  ion-content {
-    padding-bottom: 60px;
-  }
-  
-  .logout-button {
+  font-size: 24px;
+}
+
+.logout {
+    color: $red !important;
+}
+
+ion-footer {
+    height: 100px; 
+    background-color: white;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px; 
-    text-align: center;
-    font-size: 25px; 
-    color: #891159; 
+    z-index: 101;
+}
+
+.bottom-navbar {
+    width: 300px;
+    height: 64px;
+    background-color: $navy;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 30px; /* Adjust the value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 45px; /* Adjust horizontal gap between items */
+    z-index: 100;
+}
+  
+.navbar-button {
+    width: 50px;
+    height: 50px;
+    background-color: #445078;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative for absolute positioning of indicator */
+    transition: background-color 0.3s ease;
+}
+  
+.navbar-button ion-icon {
+    font-size: 26px;
+    color: white;
+}
+
+.navbar-button:hover {
+    background-color: #2d3e5f; /* Adjust hover background color */
+}
+
+.indicator {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3px; /* Position the dot below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.subtitle {
+    margin-top:10px; 
+    margin-left:12px; 
+
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #080000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: auto; /* Centrer horizontalement */
+    margin-right: auto; /* Centrer horizontalement */
+    width: fit-content; /* Ajuster la largeur au contenu */
+}
+  
+  .form-control {
+    display: block;
+    width: 60%;
+    margin: 0 auto; /* Ajout de cette ligne pour centrer horizontalement */
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.5px solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+  
+  
+  
+  
+  
+  .mb-3 {
+    margin-bottom: 1rem !important;
+  }
+
+  .input-icon {
+    position: relative;
   }
   
-  .logout-icon {
-    font-size: 30px; 
+  .input-icon ion-icon {
+    position: absolute;
+    margin: 10px;
+    font-size: 17px;
+    padding-left: 60px;
+  }
+  
+  .form-control {
+    padding-left: 70px; 
+  }
+  
+::placeholder {
+    color: black;
+    opacity: 1; 
+  }
+  
+  .form-control {
+    background-color: #e1e1e1;
   }
 
   
-  .logout-button p {
-    margin: 0; 
-  }
+  /// style du bouton 
+  ion-button {
+    --background: #374375;
+    width: 70%;
+    display: block; /* Assure que le bouton est un élément bloc */
+    margin: 0 auto; /* Centre le bouton horizontalement */
+    padding: 2rem 0.75rem;
+    font-size: 1.4rem;
+}
   
 
-      
-      
-      .mb-3 {
-        margin-bottom: 1rem !important;
-      }
-      
-      .input-icon {
-        position: relative;
-      }
-      
-      .input-icon ion-icon {
-        position: absolute;
-        margin: 10px;
-        font-size: 17px;
-        padding-left: 20px;
-      }
-      
-    
-      
-     
-      
-      p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-        font-size: 16px;
-        color: #891159; 
-      }
-      
-      ion-icon {
-        margin-right: 5px; 
-      }
-      
-      
-      .no-underline {
-        text-decoration: none;
-      }
-      
-      .link-black {
-        color: black; 
-      }
-      
-      .chevron-black {
-        color: black; 
-      }
-            
-        
-      
+
+
+
+
+  
+  
