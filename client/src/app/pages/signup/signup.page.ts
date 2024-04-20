@@ -44,8 +44,9 @@ export class SignupPage {
       };
       this.httpHandler.signup(userData).subscribe(
         (response: any) => {
+         // console.log('Signup response:', response);
           this.router.navigateByUrl('/login');
-          console.log('Signup response:', response);
+         
         },
         (error: HttpErrorResponse) => {
           if (error.status === 400 && error.error && error.error.username && error.error.username[0] === 'A user with that username already exists.') {

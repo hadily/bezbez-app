@@ -1,0 +1,85 @@
+
+<h2 class="header">Create your bezbez</h2>
+<ion-progress-bar  [value]="progress" style="--color: gray;"></ion-progress-bar>
+
+<ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+
+
+
+
+
+<ion-content padding>
+
+  <div class="category-buttons">
+
+  <h3 style="margin-bottom: -2px;">Shop preferences</h3>
+  <h5 style ="margin-top: -0.5px;">Let’s get started tell us about you and your shop.</h5>
+  
+  </div>
+  <form>
+
+
+
+<div class="category-country-name">
+  <div class="name-shop">
+    <ion-input label="shop name" label-placement="floating" fill="outline" placeholder="bezbez" class="shop-justify"></ion-input>
+  </div>
+
+
+
+  
+    <ion-list>
+      <ion-item>
+      
+        <div class="country-shop">
+        <ion-select aria-label="country-shop" placeholder="Select country">
+          <ion-select-option value="tunisia">Tunisia</ion-select-option>   
+        </ion-select>
+      </div>
+      </ion-item>
+    </ion-list>
+  
+    </div>
+
+
+
+
+
+
+
+    <div class="category_button_lower">  
+    <div class="mb-7">
+      <label class="form-label">shop Categories</label><br>
+    
+      <div style="margin-top: 10px;"  class="category-buttons">
+        <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Beauty</ion-button>
+        <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Bakery</ion-button>
+        <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Wedding & Party</ion-button>
+        <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Clothing & Shoes</ion-button>
+        <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Jewellery</ion-button>
+        <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Pet & Supplies</ion-button>
+        <!-- Add more categories as needed -->
+      </div>
+    </div>
+  </div>
+
+    
+          
+      
+    <div class="center-item">  
+    <ion-button expand="block" type="submit" class="aqua">Save and Continue</ion-button>
+  </div>
+  
+  
+  
+
+  </form>
+  <br><br><br>
+</ion-content>
+
+<script>
+  function toggleSelection(button) {
+    button.classList.toggle('selected');
+  }
+</script>
+
