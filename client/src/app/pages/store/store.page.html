@@ -1,8 +1,10 @@
 <ion-header>
   <div class="header-content">
-    <ion-icon name="chevron-back-outline" class="back" (click)="goBack()"></ion-icon>
+    <ion-button href="/all-items" class="back-button">
+      <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+    </ion-button>
     <p class="title">Bezbez Store</p>
-    <ion-icon name="storefront-outline"></ion-icon>
+    <ion-icon name="storefront-outline" class="header-icon"></ion-icon>
   </div>
 </ion-header>
 
@@ -16,9 +18,9 @@
         <p class="bezbez-name">bezbez-name</p>
       </div>
       <div class="bezbez-follow">
-        <button class="button-navy">
-          <p class="button-text">Follow</p>
-        </button>
+        <ion-button [class.button-navy]="!follow" [class.button-periwinkle]="follow" (click)="toggleFollow()">
+          <p class="button-text">{{ follow? 'Following' : 'Follow' }}</p>
+        </ion-button>
       </div>
     </div>
   
@@ -47,7 +49,7 @@
   </div>
 
   <div class="items-container">
-    <app-store-items *ngFor="let item of items" [item]="item" (click)="navigateToItemDetails(item.item_id)"></app-store-items>
+    <app-store-items *ngFor="let item of items" [item]="item"></app-store-items>
   </div>
 
   <div class="empty-space"></div>

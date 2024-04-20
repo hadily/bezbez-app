@@ -12,5 +12,8 @@ export class StoreItemsComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
+  
+  toggleLike(item: any) {
+    item.liked = !item.liked;
+  }
 }

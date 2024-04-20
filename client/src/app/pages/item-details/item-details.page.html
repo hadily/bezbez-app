@@ -1,8 +1,10 @@
 <ion-header>
   <div class="header-content">
-    <ion-icon name="chevron-back-outline" class="back" (click)="goBack()"></ion-icon>
+    <ion-button href="/all-items" class="back-button">
+      <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+    </ion-button>
     <p class="title">Product Details</p>
-    <ion-icon name="pricetag-outline" class="tag"></ion-icon>
+    <ion-icon name="pricetag-outline" class="tag header-icon"></ion-icon>
   </div>
 </ion-header>
 
@@ -21,13 +23,15 @@
   </div>
 
   <div class="description">
-    <p class="title">Description</p>
+    <p class="description-title">Description</p>
     <p class="parag">cherry leather boots made with authentic leather.</p>
   </div>
 
   <div class="bezbez-details">
     <img src="../../../assets/images/bezbez-1.jpeg" alt="bezbez-logo" class="bezbez-logo">
-    <p class="bezbez-name">bezbez-name</p>
+    <ion-button href="/store" class="bezbez-button">
+      <p class="bezbez-name">bezbez-name</p>
+    </ion-button>
   </div>
 
   <div class="cart">
@@ -37,10 +41,10 @@
       <ion-icon name="add-circle" class="plus" (click)="increaseQuantity()"></ion-icon>
     </div>
     <div class="add">
-      <button class="button-navy">
+      <ion-button [class.button-navy]="!inCart" [class.button-periwinkle]="inCart" (click)="toggleCart()">
         <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
-        <p class="button-text">Add to Cart</p>
-      </button>
+        <p class="button-text">{{ inCart ? 'Added to Cart' : 'Add to Cart' }}</p>
+      </ion-button>
     </div>
   </div>
 </ion-content>

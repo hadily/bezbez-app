@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,19 +8,9 @@ import { Router } from '@angular/router';
 })
 export class ItemDetailsPage implements OnInit {
 
-  @Output() refreshEvent = new EventEmitter<void>();
-
   constructor(private router: Router) { }
 
   ngOnInit() {}
-
-  goBack() {
-    const currentUrlTree = this.router.parseUrl(this.router.url);
-    const segments = currentUrlTree.root.children['primary'].segments;
-    const newUrl = segments.slice(0, -2).map(segment => segment.path).join('/');
-    this.router.navigateByUrl(newUrl);
-    this.refreshEvent.emit();
-  }
 
   quantity: number = 1;
 
@@ -32,6 +22,12 @@ export class ItemDetailsPage implements OnInit {
     if (this.quantity > 1) {
       this.quantity--;
     }
+  }
+
+  inCart: boolean = false;
+
+  toggleCart() {
+    this.inCart = !this.inCart;
   }
 
 }

@@ -24,7 +24,7 @@ $regular: 400;
     flex-direction: column;
     border-radius: 20px; 
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -62,6 +62,7 @@ $regular: 400;
     font-weight: $medium;
     line-height: 150%;
     letter-spacing: 0.3%;
+    color: black;
 }
   
 .item-price {
@@ -71,6 +72,7 @@ $regular: 400;
     line-height: 150%;
     letter-spacing: 0.3%;
     color: $grey;
+    // margin-left: -25px;
 }
 
 .item-actions {
@@ -84,4 +86,26 @@ $regular: 400;
 .item-actions ion-icon {
     font-size: 24px; 
     color: $navy;
+}
+
+.name-button {
+    --background: transparent; 
+    --box-shadow: none; 
+    --padding-start:  none;
+}
+  
+.name-button:hover {
+    --background: transparent !important; 
+}
+  
+.name-button:active {
+    --background-activated: transparent !important;  
+}
+  
+.name-button:focus {
+    --background-activated: transparent !important;  
+}
+  
+.name-button::part(native) {
+    background-color: transparent;
 }
