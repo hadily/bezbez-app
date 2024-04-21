@@ -12,11 +12,12 @@
   <p class="small-regular">Create and manage your own online business like it has never been easier</p>
 
   <div class="button-container">
-    <button class="button-navy" (click)="navigateToP2()"><h5>Continue</h5></button>
+    <ion-button style="--background:#374375" class="button-navy" href="/home/p2">
+      <h5 slot="start">Continue</h5>
+    </ion-button>
   </div>
 
-  <div class="skip-text" (click)="navigateToP3()">
-    <p class="large-semi-bold">Skip</p>
-  </div>
-
+  <ion-button class="skip-btn" fill="clear" href="/home/p3">
+    <p slot="start" class="large-semi-bold">Skip</p>
+  </ion-button>
 </ion-content>

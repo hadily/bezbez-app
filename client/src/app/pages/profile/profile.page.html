@@ -40,18 +40,18 @@
 
 <ion-footer>
   <div class="bottom-navbar">
-    <button class="navbar-button">
-      <ion-icon name="home-outline" (click)="navigateTo('/all-items')"></ion-icon>
-    </button>
-    <button class="navbar-button">
-      <ion-icon name="bag-handle-outline" (click)="navigateTo('/cart')"></ion-icon>
-    </button>
-    <button class="navbar-button">
-      <ion-icon name="heart-outline" (click)="navigateTo('/likes')"></ion-icon>
-    </button>
-    <button class="navbar-button">
-      <ion-icon name="person" (click)="navigateTo('/profile')"></ion-icon>
+    <ion-button class="navbar-button" fill="clear" href="/all-items">
+      <ion-icon name="home-outline" class="navbar-icon"></ion-icon>
+    </ion-button>
+    <ion-button class="navbar-button" fill="clear" href="/cart">
+      <ion-icon name="bag-handle-outline" class="navbar-icon"></ion-icon>
+    </ion-button>
+    <ion-button class="navbar-button" fill="clear" href="/likes">
+      <ion-icon name="heart-outline" class="navbar-icon"></ion-icon>
+    </ion-button>
+    <ion-button class="navbar-button" fill="clear" href="/profile">
+      <ion-icon name="person" class="navbar-icon"></ion-icon>
       <div class="indicator"></div>
-    </button>
+    </ion-button>
   </div>
 </ion-footer>

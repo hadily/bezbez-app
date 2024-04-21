@@ -3,12 +3,14 @@
     <img src="../../../assets/images/item-1.jpeg" alt="Item Image">
   </div>
   <div class="item-description">
-    <div class="item-details">
-      <div class="item-name">{{ item.name }}</div>
-      <div class="item-price">{{ item.price }}</div>
-    </div>
+    <ion-button [href]="'/all-items/item-details/'+ item.item_id" class="name-button">
+      <div class="item-details">
+        <div class="item-name">{{ item.name }}</div>
+        <div class="item-price">{{ item.price }}</div>
+      </div>
+    </ion-button>
     <div class="item-actions">
-      <ion-icon [name]="item.liked ? 'heart' : 'heart-outline'"></ion-icon>
+      <ion-icon [name]="item.liked ? 'heart' : 'heart-outline'" (click)="toggleLike(item)"></ion-icon>
     </div>
   </div>
 </div>

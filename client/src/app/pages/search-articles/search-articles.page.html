@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-button href="/all-items" class="back-button">
+    <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+  </ion-button>
+  <ion-searchbar showCancelButton="focus" class="custom"></ion-searchbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="buttons-container">
+    <ion-button class="current-button">
+      <ion-icon slot="start" name="apps-outline"></ion-icon>
+      Articles
+    </ion-button>
+    <ion-button fill="outline" class="outlined-button" href="/search-bezbezes" >
+      <ion-icon slot="start" name="albums-outline"></ion-icon>
+      Bezbezes
+    </ion-button>
+  </div>
+
+  <div class="items-container">
+    <app-searched-articles *ngFor="let item of items" [item]="item"></app-searched-articles>
+  </div>
+
+  <div class="empty-space"></div>
+
+</ion-content>
+

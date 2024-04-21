@@ -22,6 +22,34 @@ $grey: #918f8f;
     margin-top: 10px;
 }
 
+.back-button {
+    --background: transparent; 
+    --box-shadow: none; 
+}
+  
+.back-button:hover {
+    --background: transparent !important; 
+}
+  
+.back-button:active {
+    --background-activated: transparent !important;  
+}
+  
+.back-button:focus {
+    --background-activated: transparent !important;  
+}
+  
+.back-button::part(native) {
+    background-color: transparent;
+}
+
+ion-icon.back-icon {
+    font-size: 24px; 
+    margin-right: 5px; 
+    color: black;
+    margin-left: 0;
+}
+
 .title {
     font-family: 'Inter', sans-serif;
     font-size: 20px;
@@ -30,10 +58,12 @@ $grey: #918f8f;
     letter-spacing: 0.3%;
     margin: 0; /* Reset margin */
     padding: 0; /* Reset padding */
+    margin-left: -2rem;
 }
 
-ion-icon {
-    font-size: 26px; /* Adjust icon size as needed */
+ion-icon.header-icon {
+    font-size: 26px !important;
+    color: black;
 }
 
 .image {
@@ -101,12 +131,14 @@ ion-icon {
     padding: 0 0 0 2em;
 }
   
-p.title {
+p.description-title {
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: bold;
     line-height: 140%;
     letter-spacing: 0.3%;
+    margin: 0; /* Reset margin */
+    padding: 0;
 }
   
 p.parag {
@@ -139,6 +171,28 @@ img.bezbez-logo {
     line-height: 140%;
     letter-spacing: .3%;
     margin: 0;
+    color: black;
+}
+
+.bezbez-button {
+    --background: transparent; 
+    --box-shadow: none; 
+}
+  
+.bezbez-button:hover {
+    --background: transparent !important; 
+}
+  
+.bezbez-button:active {
+    --background-activated: transparent !important;  
+}
+  
+.bezbez-button:focus {
+    --background-activated: transparent !important;  
+}
+  
+.bezbez-button::part(native) {
+    background-color: transparent;
 }
 
 .cart {
@@ -173,17 +227,30 @@ img.bezbez-logo {
     margin-left: 20px;
 }
 
-.button-navy {
+ion-button.button-navy {
     display: flex;
     align-items: center; 
-    background-color: $navy;
-    border-radius: 40px;
-    padding: 10px 20px;
+    --background-color: $navy;
+    --border-radius: 40px;
+    // padding: 10px 20px;
     text-align: center;
     cursor: pointer;
     height: 80px;
     width: 200px;
-    border: none;
+    --border: none;
+}
+
+ion-button.button-periwinkle {
+    display: flex;
+    align-items: center; 
+    --background: #9894b4 !important;
+    --border-radius: 40px;
+    // padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    height: 80px;
+    width: 200px;
+    --border: none;
 }
 
 .cart-icon {

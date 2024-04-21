@@ -95,7 +95,8 @@ const routes: Routes = [
   {
     path: 'stat-shop',
     loadChildren: () => import('./pages/shop/stat-shop/stat-shop.module').then( m => m.StatShopPageModule)
-  },  {
+  },
+  {
     path: 'add-product-shop1',
     loadChildren: () => import('./pages/shop/add-product-shop1/add-product-shop1.module').then( m => m.AddProductShop1PageModule)
   },
@@ -103,6 +104,30 @@ const routes: Routes = [
 
 
   
+  {
+    path: 'search-articles',
+    loadChildren: () => import('./pages/search-articles/search-articles.module').then( m => m.SearchArticlesPageModule)
+  },
+  {
+    path: 'search-bezbezes',
+    loadChildren: () => import('./pages/search-bezbezes/search-bezbezes.module').then( m => m.SearchBezbezesPageModule)
+  },
+  {
+    path: 'payment-success',
+    loadChildren: () => import('./pages/payment-success/payment-success.module').then( m => m.PaymentSuccessPageModule)
+  },
+  {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'payment-method',
+    loadChildren: () => import('./pages/payment-method/payment-method.module').then( m => m.PaymentMethodPageModule)
+  },
+  {
+    path: 'add-card',
+    loadChildren: () => import('./pages/add-card/add-card.module').then( m => m.AddCardPageModule)
+  },
 ];
 
 @NgModule({

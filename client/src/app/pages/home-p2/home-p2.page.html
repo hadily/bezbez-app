@@ -12,11 +12,13 @@
   <p class="small-regular">Browse thousands of products from small businesses all over the country</p>
 
   <div class="button-container">
-    <button class="button-navy" (click)="navigateToP3()"><h5>Continue</h5></button>
+    <ion-button style="--background:#374375" class="button-navy" href="/home/p3">
+      <h5 slot="start">Continue</h5>
+    </ion-button>
   </div>
 
-  <div class="skip-text" (click)="navigateToP3()">
-    <p class="large-semi-bold">Skip</p>
-  </div>
+  <ion-button class="skip-btn" fill="clear" href="/home/p3">
+    <p slot="start" class="large-semi-bold">Skip</p>
+  </ion-button>
 
 </ion-content>

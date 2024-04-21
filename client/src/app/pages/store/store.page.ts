@@ -21,17 +21,10 @@ export class StorePage implements OnInit {
 
   ngOnInit() {}
 
-  goBack() {
-    const currentUrlTree = this.router.parseUrl(this.router.url);
-    const segments = currentUrlTree.root.children['primary'].segments;
-    const newUrl = segments.slice(0, -2).map(segment => segment.path).join('/');
-    this.router.navigateByUrl(newUrl);
-  }
+  follow: boolean = false;
 
-  navigateToItemDetails(item_id: number) {
-    const currentUrl = this.router.url;
-    const destination = currentUrl + '/item-details/' + item_id;
-    this.router.navigateByUrl(destination);
+  toggleFollow() {
+    this.follow = !this.follow;
   }
 
 }

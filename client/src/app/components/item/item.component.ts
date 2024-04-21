@@ -17,4 +17,8 @@ export class ItemComponent  implements OnInit {
 
   ngOnInit() {}
 
+  toggleLike(item: any) {
+    item.liked = !item.liked;
+  }
+
 }
