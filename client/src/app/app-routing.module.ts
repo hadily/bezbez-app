@@ -86,8 +86,22 @@ const routes: Routes = [
   },
   {
     path: 'signup-shop',
-    loadChildren: () => import('./pages/signup-shop/signup-shop.module').then( m => m.SignupShopPageModule)
+    loadChildren: () => import('./pages/shop/signup-shop/signup-shop.module').then( m => m.SignupShopPageModule)
   },
+  {
+    path: 'home-shop',
+    loadChildren: () => import('./pages/shop/home-shop/home-shop.module').then( m => m.HomeShopPageModule)
+  },
+  {
+    path: 'stat-shop',
+    loadChildren: () => import('./pages/shop/stat-shop/stat-shop.module').then( m => m.StatShopPageModule)
+  },  {
+    path: 'add-product-shop1',
+    loadChildren: () => import('./pages/shop/add-product-shop1/add-product-shop1.module').then( m => m.AddProductShop1PageModule)
+  },
+
+
+
   
 ];
 

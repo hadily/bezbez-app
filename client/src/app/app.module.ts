@@ -8,6 +8,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor'; // Import t
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ShopNavBarComponent } from './components/shop-nav-bar/shop-nav-bar.component';
 
 
 
