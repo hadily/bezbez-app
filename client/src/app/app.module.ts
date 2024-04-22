@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
+<<<<<<< HEAD
   declarations: [AppComponent],
   imports: [
     BrowserModule,
@@ -26,5 +27,24 @@ import { AppRoutingModule } from './app-routing.module';
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
+=======
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule
+  ],
+  providers: [
+    { 
+      provide: RouteReuseStrategy, 
+      useClass: IonicRouteStrategy 
+    }
+  ],
+  bootstrap: [
+    AppComponent
+  ],
+>>>>>>> hadil
 })
 export class AppModule {}

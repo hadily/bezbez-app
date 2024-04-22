@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
+<<<<<<< HEAD
   activeLink: string | undefined;
+=======
+>>>>>>> hadil
 
   items: any[] = [
     { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 1 },
@@ -20,6 +23,7 @@ export class CartPage implements OnInit {
   ];
   
   @Output() refreshEvent = new EventEmitter<void>();
+<<<<<<< HEAD
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -31,6 +35,12 @@ export class CartPage implements OnInit {
     console.log('Navigating to:', path);
     this.router.navigate(['/likes']);
   }
+=======
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {}
+>>>>>>> hadil
 
   goBack() {
     const currentUrlTree = this.router.parseUrl(this.router.url);
@@ -45,7 +55,13 @@ export class CartPage implements OnInit {
   shippingFee = 7.00;
   subTotal = 207;
 
+<<<<<<< HEAD
   
+=======
+  navigateTo(destination: string) {
+    this.router.navigate([destination]);
+  }
+>>>>>>> hadil
 
 
 }

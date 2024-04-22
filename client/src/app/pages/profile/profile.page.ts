@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { NavController } from '@ionic/angular';
+=======
+import { Router } from '@angular/router';
+>>>>>>> hadil
 
 @Component({
   selector: 'app-profile',
@@ -7,16 +11,25 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+<<<<<<< HEAD
   router: any;
 
   constructor(private navCtrl: NavController) {}
 
   ngOnInit() {}
   
+=======
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+
+>>>>>>> hadil
   navigateTo(destination: string) {
     this.router.navigate([destination]);
   }
 
+<<<<<<< HEAD
   navigateToSettings() {
     this.navCtrl.navigateForward('settings');
   }
@@ -26,4 +39,6 @@ export class ProfilePage implements OnInit {
     this.navCtrl.navigateForward('/purchases');
   }
 
+=======
+>>>>>>> hadil
 }

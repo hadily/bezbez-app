@@ -13,6 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
+<<<<<<< HEAD
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
@@ -41,6 +42,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
+=======
+>>>>>>> hadil
     path: 'home/p1',
     loadChildren: () => import('./pages/home-p1/home-p1.module').then( m => m.HomeP1PageModule)
   },
@@ -80,10 +83,13 @@ const routes: Routes = [
     path: 'store',
     loadChildren: () => import('./pages/store/store.module').then( m => m.StorePageModule)
   },
+<<<<<<< HEAD
   {
     path: 'purchases',
     loadChildren: () => import('./pages/purchases/purchases.module').then( m => m.PurchasesPageModule)
   },
+=======
+>>>>>>> hadil
 ];
 
 @NgModule({
