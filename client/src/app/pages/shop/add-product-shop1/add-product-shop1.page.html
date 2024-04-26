@@ -1,3 +1,74 @@
- <ion-button class="navbar-button" >
-    <ion-icon name="stats-chart-outline"></ion-icon>
-  </ion-button>
+<div class="bezbez-details">
+<ion-button fill="clear" href="/home-shop">
+  <ion-icon   name="arrow-back"></ion-icon>
+</ion-button>
+<h3>Add product</h3>
+  </div>
+
+
+
+<div class="setting">
+ 
+	<form #signupForm="ngForm" novalidate>
+    
+
+
+    <ion-list>
+      <ion-item>
+
+        <ion-input label="Product name" labelPlacement="floating" placeholder="Enter product name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Product description" labelPlacement="floating" placeholder="Enter description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="" type="number" placeholder="125 tnd"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-select label="Category" label-placement="floating">
+          <ion-select-option value="clothes">clothes</ion-select-option>
+          <ion-select-option value="jewellery">jewellery</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+ 
+      <ion-item>
+        <ion-select label="Sub-category" label-placement="floating">
+          <ion-select-option value="apple">Shirts</ion-select-option>
+          <ion-select-option value="banana">Skirt</ion-select-option>
+         
+        </ion-select>
+      </ion-item>
+   
+    <ion-item>
+      <ion-select aria-label="sizes" placeholder="Select all sizes "[multiple]="true">
+        <ion-select-option value="apples">Apples</ion-select-option>
+        <ion-select-option value="oranges">Oranges</ion-select-option>
+        <ion-select-option value="bananas">Bananas</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="upload-container">
+      <label for="file-upload" class="upload-label">
+        <ion-icon name="cloud-upload"></ion-icon>        <span>Upload Image</span>
+      </label>
+      <input id="file-upload" type="file" accept="image/*" (change)="onFileSelected($event)">
+      <div class="upload-preview" *ngIf="selectedFile">
+        <img [src]="previewImage" alt="Uploaded Image">
+      </div>
+    </div>
+    
+   
+    
+  </ion-list>
+  
+
+
+
+	</form>
+</div>
+
+
+
+
+<app-shop-nav-bar></app-shop-nav-bar>

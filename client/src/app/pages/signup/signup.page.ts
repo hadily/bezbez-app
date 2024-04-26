@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpHandlerService } from '../../http-handler.service'; // Adjust the path as needed
+import { HttpHandlerService } from '../../../http-handler.service'; // Adjust the path as needed
 import { AlertController } from '@ionic/angular';
 import { HttpErrorResponse } from '@angular/common/http';
 
