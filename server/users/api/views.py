@@ -52,22 +52,14 @@ class UserLogin(ObtainAuthToken):
         user = authenticate(request, username=username_or_email, password=password)
 
         if user is not None and user.is_active:
-            # User authenticated successfully, generate token
-            token, created = Token.objects.get_or_create(user=user)
+            # User authenticated successfully, you may perform additional actions here if needed
             return Response({
-                'token': token.key,
+                'response': 'success',
                 'user_id': user.pk,
-          
             })
         else:
             # Invalid credentials or inactive user
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
-    def get_authenticators(self):
-        # Override get_authenticators to add EmailBackend for email-based authentication
-        authenticators = super().get_authenticators()
-        authenticators.insert(0, EmailBackend())  # Add EmailBackend as the first authenticator
-        return authenticators
 @api_view(['POST'])
 def user_signup(request):
     serializer = SignupSerializer(data=request.data)
@@ -131,8 +123,7 @@ class ChangePasswordView(APIView):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class LogoutView(APIView):
-    permission_classes = [IsAuthenticated]
-
+    permission_classes = [IsAuthenticated] 
     def post(self, request):
         request.user.auth_token.delete()
         return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)
