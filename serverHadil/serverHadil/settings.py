@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shops',
+    'orders',
+    'users',
+    'items'
 ]
 
 MIDDLEWARE = [
@@ -47,6 +52,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8100",
 ]
 
 ROOT_URLCONF = 'serverHadil.urls'
@@ -67,16 +78,21 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'serverHadil.wsgi.application'
+AUTH_USER_MODEL = 'users.CustomUser'
 
+WSGI_APPLICATION = 'serverHadil.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bezbez', 
+        'USER': 'postgres',
+        'PASSWORD': 'didi123',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
 
@@ -121,3 +137,26 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # Your CKEditor configuration options here
+    }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+}
+
+# Silence CKEditor warning about outdated version
+SILENCED_SYSTEM_CHECKS = ['ckeditor.W001']
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default backend for username/password authentication
+      'users.api.custom_auth_backends.EmailAuthBackend',  # Custom backend for email/password authentication
+    
+]

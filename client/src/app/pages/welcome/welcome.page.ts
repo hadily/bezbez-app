@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,31 +9,21 @@ import { Router } from '@angular/router';
 })
 export class WelcomePage implements OnInit {
 
-  items: any[] = [
-    { item_id: 1, path: '../../../assets/images/item-2.jpeg', name: 'Earrings', price: '20 DT', liked: true },
-    { item_id: 2, path: '../../../assets/images/item-2.jpeg', name: 'Earrings', price: '20 DT', liked: false },
-    { item_id: 2, path: '../../../assets/images/item-2.jpeg', name: 'Earrings', price: '20 DT', liked: false },
-    { item_id: 2, path: '../../../assets/images/item-2.jpeg', name: 'Earrings', price: '20 DT', liked: false },
-    { item_id: 2, path: '../../../assets/images/item-2.jpeg', name: 'Earrings', price: '20 DT', liked: false },
-    { item_id: 2, path: '../../../assets/images/item-2.jpeg', name: 'Earrings', price: '20 DT', liked: false }
-  ];
+  items: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {}
 
-  navigateToCheckBezbezes() {
-    this.router.navigate(['/check']);
-  }
-
-  navigateToItemDetails(item_id: number) {
-    const currentUrl = this.router.url;
-    const destination = currentUrl + '/item-details/' + item_id;
-    this.router.navigateByUrl(destination);
-  }
-
-  navigateTo(destination: string) {
-    this.router.navigate([destination]);
+  fetchItems() {
+    this.http.get<any>('http://your-django-backend-url/api/get-products').subscribe(
+      (response) => {
+        this.items = response.products;
+      },
+      (error) => {
+        console.error('Error fetching items:', error);
+      }
+    );
   }
 
 }
