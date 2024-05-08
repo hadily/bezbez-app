@@ -1,0 +1,16 @@
+<div class="item-container">
+  <div class="item-image">
+    <img src="../../../assets/images/item-1.jpeg" alt="Item Image">
+  </div>
+  <div class="item-description">
+    <div class="item-details">
+      <div class="item-name">{{ item.name }}</div>
+      <div class="item-price">{{ item.price }}</div>
+    </div>
+    <div class="item-quantity">
+      <ion-icon name="remove-outline" class="minus" (click)="decreaseQuantity()"></ion-icon>
+      <p class="quantity-number">{{ item.quantity }}</p>
+      <ion-icon name="add-circle" class="plus" (click)="increaseQuantity()"></ion-icon>
+    </div>
+  </div>
+</div>

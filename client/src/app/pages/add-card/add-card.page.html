@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-button href="/payment" class="back-button">
+    <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+  </ion-button>
+  <p class="title">Add New Card</p>
+</ion-header>
+
+<ion-content>
+  <form>
+    <div class="form-item">
+      <p class="label">Card Number</p>
+      <ion-item class="custom-item">
+        <ion-input type="number" placeholder="**** **** **** ****"></ion-input>
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="form-item">
+      <p class="label">Card Owner Name</p>
+      <ion-item class="custom-item">
+        <ion-input type="text" placeholder="Enter Owner Name"></ion-input>
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="form-item">
+      <p class="label">Expired</p>
+      <ion-item class="custom-item">
+        <ion-input type="text" placeholder="MM/YY"></ion-input>
+        <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="form-item">
+      <p class="label">CVV Code</p>
+      <ion-item class="custom-item">
+        <ion-input type="number" placeholder="***"></ion-input>
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <ion-button style="--background:#374375" class="button-navy" href="/payment-method">
+      <h5 slot="start">Add Card</h5>
+    </ion-button>
+  </div>
+</ion-footer>

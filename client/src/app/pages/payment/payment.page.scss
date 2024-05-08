@@ -1,0 +1,283 @@
+/* Colors */
+$navy: #374375;
+$periwinkle: #BABDE2;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+
+ion-header {
+    margin-left: -25px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    --background: transparent; 
+    --box-shadow: none; 
+    margin-right: 5em;
+}
+  
+.back-button:hover {
+    --background: transparent !important; 
+}
+  
+.back-button:active {
+    --background-activated: transparent !important;  
+}
+  
+.back-button:focus {
+    --background-activated: transparent !important;  
+}
+  
+.back-button::part(native) {
+    background-color: transparent;
+}
+
+ion-icon.back-icon {
+    font-size: 24px; 
+    margin-right: 5px; 
+    color: black;
+    margin-left: 0;
+}
+
+.title {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin-right: 7em;
+    padding: 0;
+}
+
+ion-footer {
+    height: 100px; 
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+}
+
+.bottom-navbar {
+    width: 300px;
+    height: 64px;
+    background-color: $navy;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 45px; 
+    z-index: 101;
+}
+
+.button-navy {
+    --position: relative;
+    --top: 30px;
+    --border-radius: 40px;
+    --padding: 10px 20px;
+    --text-align: center;
+    height: 56px;
+    width: 269px;
+    --border: none;
+}
+
+.button-navy h5 {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 130%;
+    letter-spacing: -2%;
+    color: white; 
+    margin: 0;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ion-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.address-content {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2; 
+    background-color: #ffffff;
+    margin-top: 75px;
+}
+
+p.address-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin: 0px 30px;
+    padding: 10px 0px;
+}
+
+.map-content {
+    display: flex;
+    align-items: center;
+    margin-top: -3px;
+    margin: 0px 30px;
+}
+
+.map-content img {
+    width: 35%; 
+    height: 85%;
+    margin-right: 10px; 
+    border-radius: 25%;
+}
+
+.address-details {
+    height: fit-content;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 1em;
+    flex-grow: 1;
+    
+}
+  
+p.address-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    padding: 0;
+}
+  
+p.parag {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 150%;
+    letter-spacing: 0.3%;
+    color: #747171;
+    margin-top: -5px; 
+    width: 90%;
+}
+
+.cart-content {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+    background-color: #ffffff;
+    margin-top: 180px;
+    margin-bottom: 200px;
+
+    max-height: calc(100% - 180px - 200px); 
+    overflow-y: auto;
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+}
+
+p.products-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin: 0px 30px;
+    padding: 10px 0px;
+}
+  
+.payment-method {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; 
+    padding: 10px; 
+    z-index: 1;
+    margin-bottom: 90px;
+}
+
+p.payment-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0.3%;
+    margin: 0px 30px;
+    padding: 10px 0px;
+}
+
+img.card-img {
+    height: 30px;
+    width: 45px;
+    border-radius: 10px;
+    margin-right: 1em;
+}
+
+ion-button {
+    width: 370px;
+    height: 65px;
+    border-radius: 25px;
+    --border-color: #C2C2C2;
+    margin: 0 1em;
+    --color: black;
+}
+
+.payment-button-icon {
+    color: black;
+}
+
+.card-number {
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: auto;
+    letter-spacing: 140%;
+    margin-right: 9em;
+}
+
+.detail {
+    display: flex;
+    margin: .4em 0;
+}
+
+.detail .detail-title {
+    margin: 0;
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: auto;
+    letter-spacing: 0%;
+    padding: 0 3em;
+}
+
+.detail .number {
+    margin: 0;
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: auto;
+    letter-spacing: 0%;
+    padding-left: 11em;
+}

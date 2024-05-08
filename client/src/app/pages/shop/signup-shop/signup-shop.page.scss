@@ -1,0 +1,115 @@
+/* Colors */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+$navy: #374375;
+$periwinkle: #9894b4;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+.decalage{
+  display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+  
+    
+}
+ion-button.aqua {
+    --background:#374375;
+    --color:#FFFCF5;
+    font-size:1.3rem;
+    width: 80%;
+  }
+.center-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40%;
+}
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+   align-content: flex-start; 
+   align-content: flex-start; /* Align lines to the top */
+
+   
+}
+
+
+.name-shop{
+  font-weight: 600;
+  color: #000000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+
+}
+.country-shop{
+ 
+  font-weight: 600;
+  color: #374375;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 5%;  
+    color: #374375;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+
+}
+.category_button_lower{
+    display: flex;
+    gap: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-content: flex-start; 
+   margin-top: 8%;
+}
+  .category-buttons ion-button {
+    flex-basis: calc(33.33% - 10px);
+    flex-grow: 1; 
+  }
+.shop-justify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;}
+
+  ategory-buttons ion-button:nth-child(1),
+.category-buttons ion-button:nth-child(4),
+.category-buttons ion-button:nth-child(7) {
+  flex-basis: calc(50% - 10px); /* Set width for irregular buttons */
+}
+
+.category-buttons ion-button:nth-child(2),
+.category-buttons ion-button:nth-child(5),
+.category-buttons ion-button:nth-child(8) {
+  flex-basis: calc(30% - 10px); /* Set width for irregular buttons */
+}
+
+.category-buttons ion-button:nth-child(3),
+.category-buttons ion-button:nth-child(6),
+.category-buttons ion-button:nth-child(9) {
+  flex-basis: calc(20% - 10px); /* Set width for irregular buttons */
+}
+h3{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #374375;
+  font-weight: 600;
+  padding-top: 2px;
+}
+.icon-and-heading {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+

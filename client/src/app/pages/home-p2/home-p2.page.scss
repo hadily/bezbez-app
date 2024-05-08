@@ -1,0 +1,124 @@
+/* Colors */
+$navy: #374375;
+$periwinkle: #9894b4;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap');
+
+ion-content {
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60%;
+        width: 100%;
+        position: relative;
+    }
+
+    .image-container img {
+        height: 85%;
+        width: 90%;
+        border-radius: 12.5%;
+        margin-top: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    .indicator-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+    
+    .indicator-container img {
+        height: 20px; 
+        width: auto; 
+    }
+
+    .title {
+        font-size: 30px;
+        letter-spacing: 0%;
+        align-self: center top;
+        max-width: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .small-regular {
+        font-family: 'Sora', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 150%;
+        letter-spacing: 0.3%;
+        max-width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        color: $grey;
+        margin-top: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10%; 
+        position: relative;
+    }
+      
+    .button-navy {
+        --position: relative;
+        --top: 30px;
+        --border-radius: 40px;
+        --padding: 10px 20px;
+        --text-align: center;
+        height: 56px;
+        width: 269px;
+        --border: none;
+    }
+
+    .button-navy h5 {
+        font-family: 'Sora', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 130%;
+        letter-spacing: -2%;
+        color: white; 
+        margin: 0;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .skip-btn {
+        --position: absolute;
+        --top: 30px;
+        --border-radius: 40px;
+        --padding: 10px 20px;
+        --text-align: center;
+        height: 56px;
+        width: 269px;
+        --border: none;
+        padding-left: 80px !important;
+    }
+    
+    .large-semi-bold {
+        font-family: 'Enriqueta', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 150%;
+        letter-spacing: 0.3%;
+        color: #747171;
+    }
+    
+}  
+  

@@ -1,0 +1,59 @@
+<ion-header>
+  <div class="header-content">
+    <ion-button href="/all-items" class="back-button">
+      <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+    </ion-button>
+    <p class="title">Cart</p>
+    <ion-icon name="bag-handle-outline" class="header-icon"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="items-container">
+    <app-cart-item *ngFor="let item of items" [item]="item"></app-cart-item>
+  </div>
+
+  <div class="empty-space"></div>
+
+
+  <div class="payment">
+    <div class="payment-details">
+      <div class="detail">
+        <p class="title">Total t</p>
+        <p class="number">5 DT</p>
+      </div>
+      <div class="detail">
+        <p class="title">Shipping Fee</p>
+        <p class="number">2 DT</p>
+      </div>
+      <hr class="divider">
+      <div class="detail">
+        <p class="title">Sub Total</p>
+        <p class="number">112 DT</p>
+      </div>
+    </div>
+    <ion-button class="pay-button" fill="clear" href="/payment">
+      <ion-icon name="card-outline"></ion-icon>
+      <ion-label>Pay</ion-label>
+    </ion-button>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <div class="bottom-navbar">
+    <ion-button class="navbar-button" fill="clear" href="/all-items">
+      <ion-icon name="home-outline" class="navbar-icon"></ion-icon>
+    </ion-button>
+    <ion-button class="navbar-button" fill="clear" href="/cart">
+      <ion-icon name="bag-handle" class="navbar-icon"></ion-icon>
+      <div class="indicator"></div>
+    </ion-button>
+    <ion-button class="navbar-button" fill="clear" href="/likes">
+      <ion-icon name="heart-outline" class="navbar-icon"></ion-icon>
+    </ion-button>
+    <ion-button class="navbar-button" fill="clear" href="/profile">
+      <ion-icon name="person-outline" class="navbar-icon"></ion-icon>
+    </ion-button>
+  </div>
+</ion-footer>

@@ -1,0 +1,54 @@
+<div class="button-bar">
+  <ion-button>1 Day</ion-button> 
+  <ion-button>1 Month</ion-button> 
+  <ion-button>1 Week</ion-button>
+
+</div>
+
+<div class="analytics-container">
+    <ion-grid [fixed]="true">
+        <ion-row>
+          <ion-col><ion-card>
+            <ion-card-header>
+              <ion-card-title>  {{totalSales}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Total sales
+             
+            </ion-card-content>
+          </ion-card></ion-col>
+          <ion-col><ion-card>
+            <ion-card-header>
+              <ion-card-title>{{newOrders}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              New orders
+            </ion-card-content>
+          </ion-card></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col><ion-card>
+                <ion-card-header>
+                  <ion-card-title>  {{newCustomers}} </ion-card-title>               
+                </ion-card-header>
+              
+                <ion-card-content>
+                  New customers
+                 
+                </ion-card-content>
+              </ion-card></ion-col>
+            <ion-col><ion-card>
+                <ion-card-header>
+                  <ion-card-title>{{pendingOrders}}</ion-card-title>
+                </ion-card-header>
+              
+                <ion-card-content>
+                 Pending orders
+                </ion-card-content>
+              </ion-card></ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+  

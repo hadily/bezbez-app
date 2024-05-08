@@ -1,0 +1,14 @@
+<div class="item-container">
+  <div class="item-image">
+    <img src="../../../assets/images/item-1.jpeg" alt="Item Image">
+  </div>
+  <div class="item-description">
+    <div class="item-details">
+      <div class="item-name">{{ item.name }}</div>
+      <div class="item-price">{{ item.price }}</div>
+    </div>
+    <div class="item-actions">
+      <ion-icon [name]="item.liked ? 'heart' : 'heart-outline'"></ion-icon>
+    </div>
+  </div>
+</div>

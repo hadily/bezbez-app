@@ -1,0 +1,33 @@
+http://127.0.0.1:8000/api/signup/?
+{
+    "first_name": "laila",
+    "last_name":"nermina",
+    "email": "testuser1@example.com",
+    "username": "test",
+    "password": "securepassword",
+    "phone": "123450"
+  
+}
+
+// username existance {
+    "username": [
+        "A user with that username already exists."
+    ]
+}
+{
+    "error": "Email already exists"
+}
+http://127.0.0.1:8000/api/login/?
+{
+    "username": "testuser",
+    "password": "securepassword"
+}
+curl -X POST \
+  http://127.0.0.1:8000/api/change-password/ \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Token 14565ef943f0e403c73c52bef6287d3b503ca752' \
+  -d '{
+    "old_password": "securepassword",
+    "new_password": "new_secure_password",
+    "confirm_new_password": "new_secure_password"
+}'

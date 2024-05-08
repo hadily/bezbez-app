@@ -1,0 +1,39 @@
+ion-content {
+  .background {
+    background-color: #FFFCF5; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  ion-button {
+    --background: transparent; 
+    --box-shadow: none; 
+    border: none !important;
+    padding: 0px !important;
+  }
+  
+  ion-button:hover {
+    --background: transparent !important; 
+  }
+  
+  ion-button:active {
+    --background-activated: transparent !important;  
+  }
+  
+  ion-button:focus {
+    --background-activated: transparent !important;  
+  }
+  
+  ion-button::part(native) {
+    background-color: transparent;
+  }
+
+  img {
+    max-width: 80%; 
+    max-height: 80%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+  }
+}

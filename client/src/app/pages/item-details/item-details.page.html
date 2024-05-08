@@ -1,0 +1,50 @@
+<ion-header>
+  <div class="header-content">
+    <ion-button href="/all-items" class="back-button">
+      <ion-icon slot="icon-only" name="chevron-back-outline" class="back-icon"></ion-icon>
+    </ion-button>
+    <p class="title">Product Details</p>
+    <ion-icon name="pricetag-outline" class="tag header-icon"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="image">
+    <img src="../../../assets/images/item-1.jpeg" alt="item-img">
+  </div>
+
+  <div class="item-details">
+    <div class="item-name">
+      <p class="name">{{ selectedItem?.product_name }}</p>
+    </div>
+    <div class="item-price">
+      <p class="price">{{ selectedItem?.price }}</p>
+    </div>
+  </div>
+
+  <div class="description">
+    <p class="description-title">Description</p>
+    <p class="parag">{{ selectedItem?.description }}</p>
+  </div>
+
+  <div class="bezbez-details">
+    <img src="../../../assets/images/bezbez-1.jpeg" alt="bezbez-logo" class="bezbez-logo">
+    <ion-button href="/store" class="bezbez-button">
+      <p class="bezbez-name">bezbez-name</p>
+    </ion-button>
+  </div>
+
+  <div class="cart">
+    <div class="quantity">
+      <ion-icon name="remove-outline" class="minus" (click)="decreaseQuantity()"></ion-icon>
+      <p class="quantity-number">{{ quantity }}</p>
+      <ion-icon name="add-circle" class="plus" (click)="increaseQuantity()"></ion-icon>
+    </div>
+    <div class="add">
+      <ion-button [class.button-navy]="!inCart" [class.button-periwinkle]="inCart" (click)="toggleCart()">
+        <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+        <p class="button-text">{{ inCart ? 'Added to Cart' : 'Add to Cart' }}</p>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

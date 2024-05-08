@@ -1,0 +1,41 @@
+
+<h2 class="header">Create your bezbez</h2>
+<ion-progress-bar  [value]="progress" style="color:  gray;"></ion-progress-bar>
+<div class="decalage">
+  <div class="icon-and-heading">
+    <img style="width: 40px;" src="../../../assets/icon/bag.png" alt="Icon Description">
+    <h3 style="margin-bottom: -2px; margin-left: 10px;">Let’s get started tell us about your shop.</h3>
+  </div>
+<form>
+
+
+<ion-input label="shop name" label-placement="floating" fill="outline" placeholder="bezbez" class="shop-justify"></ion-input>
+<ion-list>
+  <ion-item>
+  
+    <ion-select aria-label="country-shop" placeholder="Select country">
+      <ion-select-option value="tunisia">Tunisia</ion-select-option>   
+    </ion-select>
+  </ion-item>
+</ion-list>
+<div >  
+  <div class="mb-7">
+    <label class="form-label">shop Categories</label><br>
+  
+    <div style="margin-top: 10px;"  class="category-buttons">
+      <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Beauty</ion-button>
+      <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Bakery</ion-button>
+      <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Wedding & Party</ion-button>
+      <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Clothing & Shoes</ion-button>
+      <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Jewellery</ion-button>
+      <ion-button expand="block" type="button" fill="outline" onclick="toggleSelection(this)">Pet & Supplies</ion-button>
+      <!-- Add more categories as needed -->
+    </div>
+  </div>
+</div>
+<div class="center-item">  
+  <ion-button expand="block" type="submit" class="aqua">Save and Continue</ion-button>
+</div>
+
+</form>
+</div>

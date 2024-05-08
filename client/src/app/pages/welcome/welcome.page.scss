@@ -1,0 +1,197 @@
+/* Colors */
+$navy: #374375;
+$periwinkle: #BABDE2;
+$cloud: #FFFCF5;
+$maroon: #895159;
+$peach: #DFAEA2;
+$grey: #918f8f;
+
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+
+ion-header {
+    height: 60px; 
+    margin-top: 20px;
+    margin-bottom: 5px;
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      padding-left: 10px; 
+      height: 100%; 
+    }
+  
+    img {
+      width: 80px; 
+      height: auto; 
+      margin-right: 10px; 
+    }
+  
+    .title {
+      font-family: 'Sora', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 120%;
+      letter-spacing: -2%;
+      margin: 0; 
+    }
+
+    .search-button {
+        --background: transparent; 
+        --box-shadow: none; 
+        margin-right: .5em;
+    }
+    
+    .search-button:hover {
+        --background: transparent !important; 
+    }
+      
+    .search-button:active {
+        --background-activated: transparent !important;  
+    }
+      
+    .search-button:focus {
+        --background-activated: transparent !important;  
+    }
+      
+    .search-button::part(native) {
+        background-color: transparent;
+    }
+    
+    ion-icon.search-icon {
+        font-size: 30px; 
+        margin-right: 5px; 
+        color: #374375;
+        margin-right: 0;
+    }
+}
+
+.upper-content {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    background-color: white; 
+    z-index: 101;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #ffff;
+    height: 50px;
+}
+
+ion-button {
+    height: 5Opx !important;
+}
+
+.current-button {
+    --background: #374375; 
+    --border-color: transparent; 
+    --color: #ffffff; 
+    height: 40px;
+}
+  
+.outlined-button {
+    --background: #ffffff; 
+    --border-color: #374375; 
+    --color: #374375; 
+    height: 40px;
+}
+
+ion-button ion-icon {
+    size: 24px;
+}
+  
+.items-container {
+    margin-top: 50px;
+    width: auto; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 25px; 
+    padding: 15px;
+    position: relative;
+    z-index: 99;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .items-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+}
+
+
+.empty-space {
+    height: 180px;
+}
+
+ion-footer {
+    height: 100px;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+}
+  
+.bottom-navbar {
+    width: 300px;
+    height: 64px;
+    background-color: $navy;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 45px; 
+    z-index: 100;
+    
+}
+  
+.navbar-button {
+    background-color: #445078;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    transition: background-color 0.3s ease;
+}
+  
+ion-icon.navbar-icon {
+    font-size: 26px !important;
+    color: white;
+}
+  
+.navbar-button:hover {
+    background-color: #2d3e5f; 
+}
+  
+.indicator {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -8px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
