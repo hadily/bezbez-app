@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpHandlerService } from '../../http-handler.service'; // Adjust the path as needed
-import { HttpErrorResponse } from '@angular/common/http';
-import { Storage } from '@ionic/storage-angular';
+import { HttpClient } from '@angular/common/http';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,54 +9,40 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  usernameOrEmail: string = ''; // Email or Username
-  password: string = '';
-  credentialsError: string = '';
-
-  constructor(
-    private router: Router,
-    private httpHandler: HttpHandlerService,
-    private storage: Storage // Inject Ionic Storage
-  ) {}
-
-  async onSubmit(form: any) {
-    if (form.valid) {
-      const credentials = {
-        username_or_email: this.usernameOrEmail,
-        password: this.password
-      };
-
-      try {
-        const response = await this.httpHandler.login(credentials).toPromise();
-        if (response.token) {
-          console.log('Token:', response.token);
-
-          // Store token in Ionic Storage
-          await this.storage.set('token', response.token);
-          console.log('Token stored in Ionic Storage.');
-
-          // Navigate to the next page after storing the token
-         // this.router.navigateByUrl('/next-page');
-        } else {
-          console.log('Token not found in the response.');
-          // Handle other scenarios where token is missing or invalid
-        }
-      } catch (error: any) {
-        if (error.status === 401 && error.error && error.error.error === 'Invalid credentials') {
-          this.handleInvalidCredentials();
-        } else {
-          console.log('Login error:', error);
-          // Handle other types of errors
-        }
+    usernameOrEmail: string = '';
+    password: string = '';
+    credentialsError: string = '';
+  
+    constructor(
+      private http: HttpClient,
+      private router: Router,
+      private alertController: AlertController
+    ) {}
+  
+    onSubmit(loginForm: any) {
+      if (loginForm.valid) {
+        const loginData = {
+          username_or_email: this.usernameOrEmail, // Assurez-vous que la clé correspond à celle utilisée par votre API Django
+          password: this.password
+        };
+  
+        this.http.post('http://127.0.0.1:8000/api/login/', loginData)
+          .subscribe(
+            (response: any) => {
+              if (response.response === 'success') {
+                this.router.navigate(['/store']); // Redirect to dashboard after successful login
+              } else {
+                this.credentialsError = 'Invalid credentials. Please try again.';
+              }
+            },
+            (error: any) => {
+              this.credentialsError = 'An error occurred. Please try again later.';
+            }
+          );
       }
     }
+  
+    clearCredentialsError() {
+      this.credentialsError = '';
+    }
   }
-
-  handleInvalidCredentials() {
-    this.credentialsError = 'Invalid credentials. Please try again.';
-  }
-
-  clearCredentialsError() {
-    this.credentialsError = ''; 
-  }
-}

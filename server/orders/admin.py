@@ -7,19 +7,19 @@ class OrderItemInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderItemInline,)
-    list_display = ('id', 'user', 'shipping_address', 'total_price', 'date_ordered', 'status')
+    list_display = ('id', 'user', 'total_price', 'date_ordered', 'status')
     list_filter = ('date_ordered', 'status')
-    search_fields = ('user__user__username', 'shipping_address__address')
+    search_fields = ('user__username',)  # Assuming CustomUser has a username field
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if not request.user.is_superuser:
-            qs = qs.filter(user=request.user.customuser)
+            qs = qs.filter(user=request.user)
         return qs
 
     def save_model(self, request, obj, form, change):
-        if not obj.id:
-            obj.user = request.user.customuser
+        if not obj.id and not request.user.is_superuser:
+            obj.user = request.user
         super().save_model(request, obj, form, change)
 
 # Register the models and their respective admin classes

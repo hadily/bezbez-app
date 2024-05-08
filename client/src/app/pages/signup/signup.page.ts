@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpHandlerService } from '../../http-handler.service'; // Adjust the path as needed
+import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
-import { HttpErrorResponse } from '@angular/common/http';
-
+import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'app-signup',
@@ -11,80 +9,55 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage {
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
-  username: string = '';
-  password: string = '';
-  phone: string = '';
-  usernameError: string = '';
-  emailError: string = '';
+  firstName: string | undefined;
+  lastName: string | undefined;
+  username: string | undefined;
+  email: string | undefined;
+  password: string = ''; // Assign an initial value to the 'password' property
+  usernameError: string | undefined;
+  emailError: string | undefined;
+  firstNameControl: any; // Ajout de la déclaration de la propriété firstNameControl
+  lastNameControl: any; // Ajout de la déclaration de la propriété lastNameControl
+  usernameControl: any; // Ajout de la déclaration de la propriété usernameControl
+  emailControl: any; // Ajout de la déclaration de la propriété emailControl
+  passwordControl: any; // Ajout de la déclaration de la propriété passwordControl
+  router: any;
+  navCtrl: any;
 
   constructor(
-    private router: Router,
-    private httpHandler: HttpHandlerService,
-    private alertController: AlertController
-  ) {}
+    private http: HttpClient,
+    private alertController: AlertController  ) {}
 
-  async onSubmit(form: any) {
-    this.clearErrors(); // Clear any previous error messages
-    if (this.firstName.trim() === '') {
-      form.controls['firstName'].markAsTouched();
-    }
-    // Add validations for lastName, email, username, password, and phone here
 
-    if (form.valid) {
-      const userData = {
-        'first_name': this.firstName,
-        'last_name': this.lastName,
-        'email': this.email,
-        'username': this.username,
-        'password': this.password,
-        'phone': this.phone
-      };
-      this.httpHandler.signup(userData).subscribe(
+
+
+  onSubmit() {
+    const userData = {
+      first_name: this.firstName,
+      last_name: this.lastName,
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
+
+    this.http.post('http://127.0.0.1:8000/api/signup/', userData)
+      .subscribe(
         (response: any) => {
-         // console.log('Signup response:', response);
-          this.router.navigateByUrl('/login');
-         
+          this.presentAlert('Success', 'Signup successful');
+          this.navCtrl.navigateForward('/login');
         },
-        (error: HttpErrorResponse) => {
-          if (error.status === 400 && error.error && error.error.username && error.error.username[0] === 'A user with that username already exists.') {
-            this.handleUsernameAlreadyExists();
-          } else if (error.status === 400 && error.error && error.error.error === 'Email already exists') {
-            this.handleEmailAlreadyExists();
-          } else {
-            this.handleError(error);
-          }
+        (error: any) => {
+          this.presentAlert('Error', error.error.error || 'An error occurred');
         }
       );
-    }
   }
 
-  clearErrors() {
-    this.usernameError = '';
-    this.emailError = '';
-  }
-
-  handleUsernameAlreadyExists() {
-    this.usernameError = 'A user with that username already exists. Please choose a different username.';
-  }
-
-  handleEmailAlreadyExists() {
-    this.emailError = 'Email already exists. Please use a different email address.';
-  }
-
-  handleError(error: HttpErrorResponse) {
-    let errorMessage = 'An error occurred during signup. Please try again later.';
-    if (error.error && error.error.message) {
-      errorMessage = error.error.message;
-    }
-    this.alertController.create({
-      header: 'Signup Error',
-      message: errorMessage,
+  async presentAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      message,
       buttons: ['OK']
-    }).then(alert => alert.present());
+    });
+    await alert.present();
   }
-
-  // Other methods as needed
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,38 +9,49 @@ import { Router } from '@angular/router';
 })
 export class CartPage implements OnInit {
 
-  items: any[] = [
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 1 },
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 2 },
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 2 },
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 2 },
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 2 },
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 2 },
-    { item_id: 2, path: '../../../assets/images/item-1.jpeg', name: 'Earrings', price: '20 DT', liked: false, quantity: 2 }
-  ];
-  
-  @Output() refreshEvent = new EventEmitter<void>();
+  items: {  product_name: string, quantity: number, price: string }[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  ngOnInit() {}
-
-  goBack() {
-    const currentUrlTree = this.router.parseUrl(this.router.url);
-    const segments = currentUrlTree.root.children['primary'].segments;
-    const newUrl = segments.slice(0, -1).map(segment => segment.path).join('/');
-    this.router.navigateByUrl(newUrl);
-    this.refreshEvent.emit();
+  ngOnInit() {
+    this.fetchItems(); // Fetch items when the component initializes
   }
-  
-  totalItems = 2;
-  totalPrice = 200
-  shippingFee = 7.00;
-  subTotal = 207;
+
+  fetchItems() {
+    // Assuming you pass the user_id dynamically from your app
+    const user_id = 68; // Update with the actual user ID
+
+    this.http.get<any>('http://localhost:8000/orders/get-user-products/' + user_id).subscribe(
+      (response: any) => {
+        console.log('API Response:', response);
+
+        if (response && response.user_products && Array.isArray(response.user_products)) {
+          this.items = response.user_products.map((item: any) => ({
+            // product_id: item.product_id,
+            name: item.product_name,
+            quantity: item.quantity,
+            price: item.price + ' DT',
+            // total_price: item.total_price,
+          }));
+        }
+      },
+      (error: any) => {
+        console.error('Error fetching items:', error);
+      }
+    );
+  }
 
   navigateTo(destination: string) {
     this.router.navigate([destination]);
   }
 
+  increaseQuantity(item: any) {
+    item.quantity++;
+  }
 
+  decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+    }
+  }
 }

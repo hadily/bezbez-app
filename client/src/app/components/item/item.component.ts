@@ -15,7 +15,9 @@ export class ItemComponent  implements OnInit {
     this.router.navigate(['/item-details', itemId]);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.item.item_id);
+  }
 
   toggleLike(item: any) {
     item.liked = !item.liked;
